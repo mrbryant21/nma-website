@@ -26,6 +26,10 @@ body {
   font-family: 'Nunito Sans', sans-serif;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 /* ===== TOP CONTACT BAR ===== */
 .nma-top-bar {
   background: var(--primary-color);
@@ -358,9 +362,9 @@ body {
   margin: 0 auto;
   width: 100%;
   padding: 0 20px 80px 20px;
-  /* margin-top: 80px; */
   min-height: calc(60vh - 200px);
 }
+
 
 /* ===== SLIDES CONTAINER ===== */
 .nma-slides-container {
@@ -511,15 +515,6 @@ body {
   }
 }
 
-.nma-hero-content {
-  flex: 1;
-  max-width: 600px;
-  margin-left: 100px;
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
 .nma-hero-title {
   font-size: 3.5rem;
   font-weight: 700;
@@ -626,11 +621,6 @@ body {
   max-width: 600px;
 }
 
-.academic-stages {
-  position: relative;
-
-}
-
 .nma-academic-stages {
   position: relative;
   padding: 40px 0;
@@ -639,6 +629,7 @@ body {
   background: white;
   transform: translateY(30px);
   transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 50px;
 }
 
 .nma-side-links {
@@ -673,13 +664,6 @@ body {
   position: relative;
   z-index: 100;
   margin-top: -60px;
-}
-
-.nma-academic-stages {
-  position: relative;
-  padding: 40px 0;
-  z-index: 3;
-  border-radius: 50px;
 }
 
 .nma-stages-overlay {
@@ -753,12 +737,16 @@ body {
 @media (max-width: 1024px) {
   .nma-header-content {
     margin-top: 60px;
-    padding: 0 15px;
+    padding: 0 15px 80px 15px;
   }
 
   .nma-slides-container {
     margin-left: 80px;
     max-width: 550px;
+  }
+
+  .nma-hero-content {
+    margin-left: 0;
   }
 
   .nma-hero-title {
@@ -871,8 +859,13 @@ body {
   .nma-slides-container {
     margin-left: 0;
     max-width: 100%;
-    min-height: 450px;
+    min-height: 400px;
     order: 2;
+    padding: 0 10px;
+  }
+
+  .nma-hero-content {
+    margin-left: 0;
   }
 
   .nma-side-nav {
@@ -993,12 +986,17 @@ body {
   }
 
   .nma-slides-container {
-    min-height: 400px;
+    min-height: 350px;
+    padding: 0 5px;
+  }
+
+  .nma-hero-content {
+    margin-left: 0;
   }
 
   .nma-slide {
-    min-height: 400px;
-    padding: 15px 0;
+    min-height: 350px;
+    padding: 10px 0;
   }
 
   .nma-hero-title {
@@ -1075,11 +1073,13 @@ body {
 /* Extra Small Devices */
 @media (max-width: 320px) {
   .nma-hero-title {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
+    margin-bottom: 12px;
   }
 
   .nma-hero-description {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
+    margin-bottom: 18px;
   }
 
   .nma-hero-btn {
@@ -1095,6 +1095,20 @@ body {
 
   .nma-stage-item {
     flex: 0 0 calc(100% - 10px);
+  }
+
+  .nma-slides-container {
+    min-height: 300px;
+    padding: 0 5px;
+  }
+
+  .nma-hero-content {
+    margin-left: 0;
+  }
+
+  .nma-slide {
+    min-height: 300px;
+    padding: 5px 0;
   }
 }
 
@@ -1474,3 +1488,8 @@ body {
   }
 }
 
+@media (max-width: 600px) {
+  .academic-stages {
+    margin-top: 10px;
+  }
+}
