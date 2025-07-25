@@ -89,24 +89,34 @@
               <a href="#" class="nma-nav-link">Home</a>
             </li>
             <li class="nma-nav-item nma-dropdown">
-              <a href="#" class="nma-nav-link"
+              <a href="" class="nma-nav-link"
                 >About <i class="fas fa-chevron-down"></i
               ></a>
               <div class="nma-dropdown-menu">
-                <a href="#" class="nma-dropdown-link">Our Story</a>
-                <a href="#" class="nma-dropdown-link">Mission & Vision</a>
-                <a href="#" class="nma-dropdown-link">Leadership</a>
+                <a href="#" class="nma-dropdown-link">About Us</a>
+                <a href="#" class="nma-dropdown-link">Welcome Message</a>
                 <a href="#" class="nma-dropdown-link">Staff</a>
               </div>
             </li>
             <li class="nma-nav-item nma-dropdown">
-              <a href="#" class="nma-nav-link"
+              <a href="" class="nma-nav-link"
                 >Academics <i class="fas fa-chevron-down"></i
               ></a>
               <div class="nma-dropdown-menu">
+                <a href="#" class="nma-dropdown-link">Pre School</a>
+                <a href="#" class="nma-dropdown-link">Lower Primary</a>
+                <a href="#" class="nma-dropdown-link">Upper Primary</a>
+                <a href="#" class="nma-dropdown-link">JHS</a>
+              </div>
+            </li>
+            <li class="nma-nav-item nma-dropdown">
+              <a href="" class="nma-nav-link"
+                >Our System <i class="fas fa-chevron-down"></i
+              ></a>
+              <div class="nma-dropdown-menu">
                 <a href="#" class="nma-dropdown-link">Curriculum</a>
-                <a href="#" class="nma-dropdown-link">Programs</a>
-                <a href="#" class="nma-dropdown-link">Assessment</a>
+                <a href="#" class="nma-dropdown-link">Safety & Welfare</a>
+                <a href="#" class="nma-dropdown-link">Smartribe Program</a>
               </div>
             </li>
             <li class="nma-nav-item">
@@ -164,8 +174,8 @@
                 </p>
                 <a href="#">
                   <button class="nma-hero-btn">
-                  View Programs
-                  <i class="fas fa-graduation-cap"></i>
+                    View Programs
+                    <i class="fas fa-graduation-cap"></i>
                   </button>
                 </a>
               </div>
@@ -308,10 +318,18 @@
                 />
               </div>
 
-              <div class="nma-image-wrapper nma-image-small">
+              <div class="nma-image-wrapper nma-image-small-top">
                 <img
                   src="images/culture.jpg"
                   alt="School Culture"
+                  class="nma-about-image"
+                />
+              </div>
+
+              <div class="nma-image-wrapper nma-image-small-bottom">
+                <img
+                  src="images/science.jpg"
+                  alt="Science Education"
                   class="nma-about-image"
                 />
                 <div class="nma-stats-overlay">
@@ -327,6 +345,211 @@
       </div>
     </section>
 
+    <section class="homepage-academics-section">
+      <div class="container">
+        <!-- Section Header -->
+        <div class="nma-academics-header">
+          <h2 class="nma-academics-title">
+            Comprehensive Education From
+            <span class="nma-highlight">Early Years to Secondary</span>
+          </h2>
+        </div>
+
+        <!-- Main Container with Navigation and Cards -->
+        <div class="nma-academics-main-container">
+          <!-- Left Navigation Panel -->
+          <div class="nma-academics-nav-panel">
+            <button
+              class="nma-academics-nav-btn nma-nav-prev"
+              id="academicsPrev"
+            >
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <button
+              class="nma-academics-nav-btn nma-nav-next"
+              id="academicsNext"
+            >
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+
+          <!-- Cards Container -->
+          <div class="nma-academics-cards-wrapper">
+            <div class="nma-academics-slider" id="academicsSlider">
+              <div class="nma-academics-track" id="academicsTrack">
+                <!-- Creche Card -->
+                <div class="nma-academic-slide active" data-stage="creche">
+                  <div class="nma-academic-card">
+                    <div
+                      class="nma-academic-bg"
+                      style="background-image: url('images/culture.jpg')"
+                    >
+                      <div class="nma-academic-overlay">
+                        <div class="nma-stage-icon">
+                          <i class="fas fa-baby"></i>
+                        </div>
+                        <h3 class="nma-stage-name">CRECHE</h3>
+                        <div class="nma-stage-details">
+                          <p class="nma-stage-description">
+                            Nurturing care for our youngest learners (6 months -
+                            2 years). We provide a safe, loving environment
+                            where infants develop through play-based activities
+                            and personalized attention.
+                          </p>
+                          <button class="nma-learn-more-btn">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Nursery Card -->
+                <div class="nma-academic-slide" data-stage="nursery">
+                  <div class="nma-academic-card">
+                    <div
+                      class="nma-academic-bg"
+                      style="background-image: url('images/smart1.jpg')"
+                    >
+                      <div class="nma-academic-overlay">
+                        <div class="nma-stage-icon">
+                          <i class="fas fa-child"></i>
+                        </div>
+                        <h3 class="nma-stage-name">NURSERY</h3>
+                        <div class="nma-stage-details">
+                          <p class="nma-stage-description">
+                            Foundation years (2-3 years) focusing on social
+                            skills, basic communication, and creative
+                            exploration. Children learn through structured play
+                            and interactive activities.
+                          </p>
+                          <button class="nma-learn-more-btn">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Kindergarten Card -->
+                <div class="nma-academic-slide" data-stage="kindergarten">
+                  <div class="nma-academic-card">
+                    <div
+                      class="nma-academic-bg"
+                      style="background-image: url('images/science.jpg')"
+                    >
+                      <div class="nma-academic-overlay">
+                        <div class="nma-stage-icon">
+                          <i class="fas fa-seedling"></i>
+                        </div>
+                        <h3 class="nma-stage-name">KINDERGARTEN</h3>
+                        <div class="nma-stage-details">
+                          <p class="nma-stage-description">
+                            Pre-school preparation (3-5 years) introducing basic
+                            literacy, numeracy, and social skills. Children
+                            develop independence and school readiness through
+                            guided learning.
+                          </p>
+                          <button class="nma-learn-more-btn">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Lower Primary Card -->
+                <div class="nma-academic-slide" data-stage="lower-primary">
+                  <div class="nma-academic-card">
+                    <div
+                      class="nma-academic-bg"
+                      style="background-image: url('images/culture.jpg')"
+                    >
+                      <div class="nma-academic-overlay">
+                        <div class="nma-stage-icon">
+                          <i class="fas fa-book-open"></i>
+                        </div>
+                        <h3 class="nma-stage-name">LOWER PRIMARY</h3>
+                        <div class="nma-stage-details">
+                          <p class="nma-stage-description">
+                            Foundation education (Primary 1-3) building core
+                            academic skills in literacy, numeracy, and science.
+                            Focus on developing critical thinking and study
+                            habits.
+                          </p>
+                          <button class="nma-learn-more-btn">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Upper Primary Card -->
+                <div class="nma-academic-slide" data-stage="upper-primary">
+                  <div class="nma-academic-card">
+                    <div
+                      class="nma-academic-bg"
+                      style="background-image: url('images/smart1.jpg')"
+                    >
+                      <div class="nma-academic-overlay">
+                        <div class="nma-stage-icon">
+                          <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="nma-stage-name">UPPER PRIMARY</h3>
+                        <div class="nma-stage-details">
+                          <p class="nma-stage-description">
+                            Advanced primary education (Primary 4-6) preparing
+                            students for secondary school. Emphasis on
+                            analytical thinking, research skills, and academic
+                            excellence.
+                          </p>
+                          <button class="nma-learn-more-btn">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- JHS Card -->
+                <div class="nma-academic-slide" data-stage="jhs">
+                  <div class="nma-academic-card">
+                    <div
+                      class="nma-academic-bg"
+                      style="background-image: url('images/science.jpg')"
+                    >
+                      <div class="nma-academic-overlay">
+                        <div class="nma-stage-icon">
+                          <i class="fas fa-university"></i>
+                        </div>
+                        <h3 class="nma-stage-name">J.H.S</h3>
+                        <div class="nma-stage-details">
+                          <p class="nma-stage-description">
+                            Junior High School (JHS 1-3) comprehensive secondary
+                            education. Students explore diverse subjects,
+                            develop leadership skills, and prepare for BECE
+                            examinations.
+                          </p>
+                          <button class="nma-learn-more-btn">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"

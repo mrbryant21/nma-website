@@ -293,3 +293,5 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 1000);
   }, 2000);
 });
+
+// Academics slider functionality removed as requested
