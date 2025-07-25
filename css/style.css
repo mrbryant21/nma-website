@@ -33,7 +33,10 @@ html {
 body {
   overflow-x: hidden;
   max-width: 100vw;
+  transition: padding-top 0.3s ease;
 }
+
+/* We don't need to add padding to body anymore since navbar is absolute positioned */
 
 
 
@@ -127,6 +130,8 @@ body {
   display: flex;
   flex-direction: column;
   transition: background-image 0.8s ease-in-out;
+  padding-top: 80px;
+  /* Add padding top to account for navbar height */
 }
 
 /* Individual slide backgrounds */
@@ -208,9 +213,38 @@ body {
 
 /* ===== NAVIGATION ===== */
 .nma-navbar {
-  position: relative;
+  position: absolute;
   z-index: 1000;
   padding: 20px 0;
+  width: 100%;
+  transition: all 0.3s ease;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+/* Initial state for navbar links to be white */
+.nma-navbar .nma-nav-link {
+  color: white;
+}
+
+.nma-navbar.nma-sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 10px 0;
+  animation: slideDown 0.3s forwards;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
 }
 
 .nma-nav-container {
@@ -228,7 +262,7 @@ body {
   transition: all 0.3s ease;
 }
 
-.nma-navbar.nma-scrolled .nma-logo-img {
+.nma-navbar.nma-sticky .nma-logo-img {
   height: 55px;
 }
 
@@ -241,7 +275,6 @@ body {
 }
 
 .nma-nav-link {
-  color: white;
   text-decoration: none;
   font-weight: 500;
   font-size: 16px;
@@ -252,7 +285,7 @@ body {
   position: relative;
 }
 
-.nma-navbar.nma-scrolled .nma-nav-link {
+.nma-navbar.nma-sticky .nma-nav-link {
   color: var(--primary-color);
 }
 
@@ -295,7 +328,7 @@ body {
   border-radius: 2px;
 }
 
-.nma-navbar.nma-scrolled .nma-hamburger-line {
+.nma-navbar.nma-sticky .nma-hamburger-line {
   background: var(--primary-color);
 }
 
@@ -1001,7 +1034,7 @@ body {
     height: 45px;
   }
 
-  .nma-navbar.nma-scrolled .nma-logo-img {
+  .nma-navbar.nma-sticky .nma-logo-img {
     height: 35px;
   }
 
@@ -1662,11 +1695,13 @@ body {
   display: flex;
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   width: 200%;
+  /* 6 slides total, so 6 * 100% = 600% */
 }
 
 /* Academic Slides */
 .nma-academic-slide {
   flex: 0 0 calc(100% / 6);
+  /* Each slide takes exactly 1/6 of track width */
   padding: 0 15px;
   box-sizing: border-box;
 }
@@ -1674,7 +1709,8 @@ body {
 /* Responsive slide widths */
 @media (max-width: 1023px) {
   .nma-academics-track {
-    width: 300%;
+    width: 600%;
+    /* Same width for all screen sizes */
   }
 
   .nma-academic-slide {
@@ -1686,7 +1722,7 @@ body {
 @media (max-width: 767px) {
   .nma-academics-track {
     width: 600%;
-    /* 6 slides ÷ 1 visible = 6 groups, so 600% */
+    /* Same width for all screen sizes */
   }
 
   .nma-academic-slide {
@@ -3066,5 +3102,1384 @@ body {
   .nma-footer-bottom-links {
     flex-direction: column;
     gap: 10px;
+  }
+}
+
+
+.homepage-school-programs {
+  padding: 100px 0;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.homepage-school-programs::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23e2e8f0" stroke-width="0.5" opacity="0.3"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+  opacity: 0.4;
+  /* z-index: -1; */
+}
+
+.nma-programs-header {
+  margin-bottom: 50px;
+  ;
+}
+
+.nma-programs-description {
+  font-size: 1.1rem;
+  color: #64748b;
+  line-height: 1.7;
+  max-width: 800px;
+}
+
+
+
+/* Programs Grid */
+.nma-programs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1024px) {
+  .nma-programs-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nma-programs-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+}
+
+.nma-program-card {
+  /* border-radius: 20px; */
+  overflow: hidden;
+  position: relative;
+  height: 400px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.nma-program-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+}
+
+.nma-program-bg {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.nma-program-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(3, 7, 43, 0.7), rgba(0, 127, 220, 0.6));
+  transition: all 0.4s ease;
+}
+
+.nma-program-card:hover .nma-program-overlay {
+  background: linear-gradient(135deg, rgba(3, 7, 43, 0.85), rgba(0, 127, 220, 0.75));
+}
+
+.nma-program-initial-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+  transition: all 0.4s ease;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.nma-program-card:hover .nma-program-initial-content {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+.nma-program-hover-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  text-align: center;
+  color: white;
+  opacity: 0;
+  transition: all 0.4s ease;
+  padding: 20px;
+  width: 90%;
+}
+
+.nma-program-card:hover .nma-program-hover-content {
+  opacity: 1;
+}
+
+.nma-program-icon {
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px auto;
+  transition: all .4s ease;
+  backdrop-filter: blur(10px);
+}
+
+.nma-program-icon i {
+  font-size: 2rem;
+  color: white;
+}
+
+.nma-program-card:hover .nma-program-icon {
+  transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.nma-program-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 0;
+  line-height: 1.3;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.nma-program-description {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  margin-bottom: 25px;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+.nma-program-btn {
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 12px 25px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  backdrop-filter: blur(10px);
+}
+
+.nma-program-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+.nma-program-btn i {
+  transition: transform 0.3s ease;
+}
+
+.nma-program-btn:hover i {
+  transform: translateX(5px);
+}
+
+/* Call to Action */
+.nma-programs-cta {
+  text-align: center;
+  background: linear-gradient(135deg, var(--primary-color), #0a0d35);
+  padding: 60px 40px;
+  border-radius: 25px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.nma-programs-cta::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 30px 30px;
+  animation: float 20s infinite linear;
+}
+
+@keyframes float {
+  0% {
+    transform: translateX(-50px) translateY(-50px);
+  }
+
+  100% {
+    transform: translateX(50px) translateY(50px);
+  }
+}
+
+.nma-programs-cta-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  position: relative;
+  z-index: 2;
+}
+
+.nma-programs-cta-description {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  opacity: 0.9;
+  position: relative;
+  z-index: 2;
+}
+
+.nma-programs-cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 2;
+}
+
+.nma-programs-cta .nma-primary-btn {
+  background: white;
+  color: var(--primary-color);
+  border: none;
+}
+
+.nma-programs-cta .nma-primary-btn:hover {
+  background: #f1f5f9;
+  transform: translateY(-3px);
+}
+
+.nma-programs-cta .nma-secondary-btn {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.nma-programs-cta .nma-secondary-btn:hover {
+  background: white;
+  color: var(--primary-color);
+}
+
+.nma-programs-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .homepage-school-programs {
+    padding: 60px 0;
+  }
+
+  .nma-programs-header {
+    margin-bottom: 50px;
+  }
+
+  .nma-programs-title {
+    font-size: 2.2rem;
+  }
+
+  .nma-programs-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    margin-bottom: 50px;
+  }
+
+  .nma-program-card {
+    height: 280px;
+  }
+
+  .nma-program-title {
+    font-size: 1.6rem;
+  }
+
+  .nma-program-hover-content {
+    padding: 15px;
+  }
+
+  .nma-programs-cta {
+    padding: 40px 30px;
+  }
+
+  .nma-programs-cta-title {
+    font-size: 1.6rem;
+  }
+
+  .nma-programs-cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nma-programs-cta-buttons .nma-primary-btn,
+  .nma-programs-cta-buttons .nma-secondary-btn {
+    width: 100%;
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nma-programs-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .nma-program-card {
+    height: 250px;
+  }
+
+  .nma-program-title {
+    font-size: 1.4rem;
+  }
+
+  .nma-program-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 15px;
+  }
+
+  .nma-program-icon i {
+    font-size: 1.5rem;
+  }
+
+  .nma-program-hover-content {
+    padding: 10px;
+  }
+
+  .nma-program-description {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+  }
+
+  .nma-programs-cta {
+    padding: 30px 20px;
+  }
+}
+
+/* ===== ABOUT PAGE HEADER ===== */
+.nma-about-header {
+  min-height: 40vh;
+  background: linear-gradient(135deg, var(--primary-color) 0%, #1a1f47 100%);
+  background-image: url('../images/nma-building.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-top: 80px;
+  /* Add padding top to account for navbar height */
+}
+
+.nma-about-header-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(3, 7, 43, 0.9), rgba(26, 31, 71, 0.8));
+}
+
+.nma-about-header-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  padding: 60px 0 40px 0;
+}
+
+.nma-about-hero-content {
+  text-align: left;
+  color: white;
+}
+
+/* Breadcrumb Styling */
+.nma-breadcrumb {
+  margin-bottom: 30px;
+}
+
+.nma-breadcrumb .breadcrumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  padding: 12px 25px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  justify-content: flex-start;
+  margin-bottom: 0;
+}
+
+.nma-breadcrumb .breadcrumb-item a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nma-breadcrumb .breadcrumb-item a:hover {
+  color: white;
+}
+
+.nma-breadcrumb .breadcrumb-item.active {
+  color: white;
+  font-weight: 500;
+}
+
+.nma-breadcrumb .breadcrumb-item+.breadcrumb-item::before {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* About Hero Text */
+.nma-about-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  line-height: 1.2;
+  color: white;
+}
+
+.nma-about-subtitle {
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 800px;
+  margin-bottom: 0;
+  line-height: 1.6;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Main Content Styling */
+
+.nma-about-intro {
+  padding: 80px 0;
+}
+
+.nma-about-intro h2 {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+.nma-about-intro .lead {
+  font-size: 1.2rem;
+  color: #64748b;
+  line-height: 1.7;
+}
+
+/* Active Navigation State */
+.nma-nav-link.active {
+  color: var(--secondary-color) !important;
+  font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .nma-about-header {
+    background-attachment: scroll;
+  }
+}
+
+@media (max-width: 768px) {
+  .nma-about-header-content {
+    padding: 40px 0 30px 0;
+  }
+
+  .nma-about-title {
+    font-size: 2.5rem;
+  }
+
+  .nma-about-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .nma-about-intro {
+    padding: 60px 0;
+  }
+
+  .nma-about-intro h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nma-about-title {
+    font-size: 2rem;
+  }
+
+  .nma-about-subtitle {
+    font-size: 1rem;
+  }
+
+  .nma-breadcrumb .breadcrumb {
+    padding: 10px 20px;
+  }
+}
+
+/* ===== WHO WE ARE SECTION ===== */
+.who-we-are {
+  background: white;
+  /* padding: 80px 0; */
+}
+
+.who-we-are-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--primary-color);
+}
+
+.nma-who-we-are-title {
+  font-size: 2.5rem;
+  color: white;
+  font-weight: 700;
+  margin-bottom: 30px;
+  line-height: 1.3;
+}
+
+.nma-who-we-are-text {
+  font-size: 1.1rem;
+  color: white;
+  line-height: 1.7;
+  margin-bottom: 25px;
+}
+
+.nma-who-we-are-text:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive Design for Who We Are Section */
+@media (max-width: 768px) {
+  .who-we-are {
+    padding: 60px 0;
+  }
+
+  .who-we-are-details {
+    padding: 40px 0;
+    min-height: auto;
+  }
+
+  .nma-who-we-are-title {
+    font-size: 2rem;
+  }
+
+  .nma-who-we-are-text {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .who-we-are {
+    padding: 40px 0;
+  }
+
+  .who-we-are-details {
+    padding: 30px 0;
+  }
+
+  .nma-who-we-are-title {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+  }
+
+  .nma-who-we-are-text {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+  }
+}
+
+/* ===== MISSION & VISION SECTION ===== */
+.nma-mission-vision-section {
+  padding: 80px 0;
+  background: #f8fafc;
+}
+
+.nma-mission-vision-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.nma-mission-card,
+.nma-vision-card,
+.nma-philosophy-card {
+  background: white;
+  /* border-radius: 20px; */
+  padding: 40px 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.nma-mission-card {
+  border-left: 5px solid var(--secondary-color);
+}
+
+.nma-vision-card {
+  border-left: 5px solid #e74c3c;
+}
+
+.nma-philosophy-card {
+  border-left: 5px solid #27ae60;
+}
+
+.nma-mission-card:hover,
+.nma-vision-card:hover,
+.nma-philosophy-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.nma-card-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+  transition: all 0.3s ease;
+}
+
+.nma-mission-card .nma-card-icon {
+  background: linear-gradient(135deg, var(--secondary-color), #0084d1);
+}
+
+.nma-vision-card .nma-card-icon {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+}
+
+.nma-philosophy-card .nma-card-icon {
+  background: linear-gradient(135deg, #27ae60, #229954);
+}
+
+.nma-card-icon i {
+  font-size: 2rem;
+  color: white;
+}
+
+.nma-card-title {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.nma-card-description {
+  color: #64748b;
+  line-height: 1.7;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+/* Core Values */
+.nma-core-values {
+  margin-top: 60px;
+  text-align: center;
+}
+
+.nma-values-title {
+  font-size: 2.2rem;
+  color: var(--primary-color);
+  font-weight: 700;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.nma-values-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--secondary-color), #0084d1);
+  border-radius: 2px;
+}
+
+.nma-value-item {
+  padding: 30px 20px;
+  background: white;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.nma-value-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.12);
+}
+
+.nma-value-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--secondary-color), #0084d1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px auto;
+  transition: all 0.3s ease;
+}
+
+.nma-value-icon i {
+  font-size: 1.5rem;
+  color: white;
+}
+
+.nma-value-item:hover .nma-value-icon {
+  transform: scale(1.1);
+}
+
+.nma-value-name {
+  font-size: 1.3rem;
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.nma-value-desc {
+  color: #64748b;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Responsive Design for Mission & Vision Section */
+@media (max-width: 768px) {
+  .nma-mission-vision-section {
+    padding: 60px 0;
+  }
+
+  .nma-mission-vision-header {
+    margin-bottom: 40px;
+  }
+
+  .nma-mission-card,
+  .nma-vision-card,
+  .nma-philosophy-card {
+    padding: 30px 25px;
+    margin-bottom: 25px;
+  }
+
+  .nma-card-title {
+    font-size: 1.5rem;
+  }
+
+  .nma-card-description {
+    font-size: 1rem;
+  }
+
+  .nma-core-values {
+    margin-top: 40px;
+  }
+
+  .nma-values-title {
+    font-size: 1.8rem;
+  }
+
+  .nma-value-item {
+    padding: 25px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .nma-mission-card,
+  .nma-vision-card,
+  .nma-philosophy-card {
+    padding: 25px 20px;
+  }
+
+  .nma-card-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .nma-card-icon i {
+    font-size: 1.5rem;
+  }
+
+  .nma-card-title {
+    font-size: 1.3rem;
+  }
+
+  .nma-card-description {
+    font-size: 0.95rem;
+  }
+
+  .nma-values-title {
+    font-size: 1.6rem;
+  }
+
+  .nma-value-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .nma-value-icon i {
+    font-size: 1.3rem;
+  }
+
+  .nma-value-name {
+    font-size: 1.1rem;
+  }
+}
+
+/* ===== ABOUT PAGE HISTORY SECTION ===== */
+.nma-history-section {
+  padding: 80px 0;
+  background: #fafafa;
+}
+
+.nma-section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.nma-section-title {
+  font-size: 2.8rem;
+  color: var(--primary-color);
+  font-weight: 700;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.nma-title-underline {
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--secondary-color), #0084d1);
+  margin: 0 auto 25px auto;
+  border-radius: 2px;
+}
+
+.nma-section-subtitle {
+  font-size: 1.2rem;
+  color: #64748b;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* History Timeline */
+.nma-history-timeline {
+  position: relative;
+  margin: 40px 0 60px 0;
+}
+
+.nma-history-timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, var(--secondary-color), #0084d1);
+  border-radius: 2px;
+}
+
+.nma-history-item {
+  position: relative;
+  padding-left: 60px;
+  margin-bottom: 50px;
+  transition: all 0.3s ease;
+}
+
+.nma-history-item:hover {
+  transform: translateX(10px);
+}
+
+.nma-history-year {
+  position: absolute;
+  left: -25px;
+  top: 0;
+  width: 50px;
+  height: 50px;
+  background: var(--secondary-color);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 15px rgba(0, 127, 220, 0.3);
+  border: 4px solid white;
+}
+
+.nma-history-content {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid var(--secondary-color);
+  transition: all 0.3s ease;
+}
+
+.nma-history-item:hover .nma-history-content {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.nma-history-title {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.nma-history-description {
+  color: #64748b;
+  line-height: 1.7;
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* Mission Statement */
+.nma-mission-statement {
+  background: linear-gradient(135deg, var(--primary-color), #1a1f47);
+  border-radius: 20px;
+  padding: 50px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.nma-mission-statement::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 30px 30px;
+  animation: float 20s infinite linear;
+}
+
+.nma-mission-content {
+  position: relative;
+  z-index: 2;
+}
+
+.nma-mission-title {
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+.nma-mission-text {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  font-style: italic;
+  margin: 0;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Responsive Design for History Section */
+@media (max-width: 768px) {
+  .nma-history-section {
+    padding: 60px 0;
+  }
+
+  .nma-section-title {
+    font-size: 2.2rem;
+  }
+
+  .nma-section-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .nma-history-timeline::before {
+    left: 25px;
+  }
+
+  .nma-history-item {
+    padding-left: 80px;
+  }
+
+  .nma-history-year {
+    left: 0;
+  }
+
+  .nma-history-content {
+    padding: 25px 20px;
+  }
+
+  .nma-history-title {
+    font-size: 1.3rem;
+  }
+
+  .nma-mission-statement {
+    padding: 40px 25px;
+  }
+
+  .nma-mission-title {
+    font-size: 1.5rem;
+  }
+
+  .nma-mission-text {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nma-section-title {
+    font-size: 1.8rem;
+  }
+
+  .nma-history-item {
+    padding-left: 70px;
+    margin-bottom: 40px;
+  }
+
+  .nma-history-year {
+    width: 40px;
+    height: 40px;
+    font-size: 0.8rem;
+    left: 5px;
+  }
+
+  .nma-history-timeline::before {
+    left: 25px;
+  }
+
+  .nma-history-content {
+    padding: 20px 15px;
+  }
+
+  .nma-history-title {
+    font-size: 1.2rem;
+  }
+
+  .nma-history-description {
+    font-size: 0.95rem;
+  }
+
+  .nma-mission-statement {
+    padding: 30px 20px;
+  }
+
+  .nma-mission-title {
+    font-size: 1.3rem;
+  }
+}
+
+.who-we-are-details .container {
+  max-width: 600px;
+}
+
+/* ===== SCHOOL FACILITIES VIDEO SECTION ===== */
+.school-facilities-video-section {
+  position: relative;
+  min-height: 300px;
+  background-image: url('../images/nma-building.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Gradient Overlay */
+.nma-facilities-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg,
+      rgba(3, 7, 43, 0.8) 0%,
+      rgba(0, 127, 220, 0.7) 50%,
+      rgba(3, 7, 43, 0.9) 100%);
+  z-index: 1;
+}
+
+.nma-facilities-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+  padding: 80px 20px;
+}
+
+.nma-facilities-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  animation: fadeInUp 1s ease-out;
+}
+
+.nma-facilities-subtitle {
+  font-size: 1.3rem;
+  margin-bottom: 40px;
+  opacity: 0.9;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  animation: fadeInUp 1s ease-out 0.2s both;
+}
+
+.nma-facilities-buttons {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  animation: fadeInUp 1s ease-out 0.4s both;
+}
+
+/* Video Button Styling */
+.nma-video-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(45deg, #e74c3c, #c0392b);
+  color: white;
+  border: none;
+  padding: 18px 35px;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(231, 76, 60, 0.3);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.nma-video-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.nma-video-btn:hover::before {
+  left: 100%;
+}
+
+.nma-video-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(231, 76, 60, 0.4);
+}
+
+.nma-video-btn i {
+  font-size: 1.2rem;
+}
+
+/* Gallery Button Styling */
+.nma-gallery-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+  padding: 16px 35px;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.nma-gallery-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: white;
+  transition: width 0.3s ease;
+  z-index: -1;
+}
+
+.nma-gallery-btn:hover::before {
+  width: 100%;
+}
+
+.nma-gallery-btn:hover {
+  color: var(--primary-color);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+}
+
+.nma-gallery-btn i {
+  font-size: 1.2rem;
+}
+
+/* Video Modal Styling */
+.nma-video-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  animation: fadeIn 0.3s ease;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.nma-video-modal-content {
+  position: relative;
+  margin: 5% auto;
+  width: 90%;
+  max-width: 800px;
+  height: 80%;
+  max-height: 450px;
+}
+
+.nma-video-close {
+  color: white;
+  float: right;
+  font-size: 35px;
+  font-weight: bold;
+  position: absolute;
+  top: -50px;
+  right: 0;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.nma-video-close:hover {
+  color: #e74c3c;
+}
+
+.nma-video-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.nma-video-container iframe {
+  width: 100%;
+  height: 100%;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .school-facilities-video-section {
+    background-attachment: scroll;
+    min-height: 400px;
+  }
+
+  .nma-facilities-content {
+    padding: 60px 15px;
+  }
+
+  .nma-facilities-title {
+    font-size: 2.2rem;
+  }
+
+  .nma-facilities-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+  }
+
+  .nma-facilities-buttons {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .nma-video-btn,
+  .nma-gallery-btn {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+
+  .nma-video-modal-content {
+    margin: 10% auto;
+    width: 95%;
+    height: 70%;
+  }
+}
+
+@media (max-width: 480px) {
+  .nma-facilities-title {
+    font-size: 1.8rem;
+  }
+
+  .nma-facilities-subtitle {
+    font-size: 1rem;
+  }
+
+  .nma-video-btn,
+  .nma-gallery-btn {
+    padding: 15px 25px;
+    font-size: 1rem;
   }
 }

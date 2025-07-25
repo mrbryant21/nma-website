@@ -61,73 +61,73 @@
       </div>
     </div>
 
+    <!-- Navigation - Moved outside header for sticky behavior -->
+    <nav class="nma-navbar" id="nmaNavbar">
+      <div class="nma-nav-container">
+        <div class="nma-logo">
+          <img
+            src="images/logo.png"
+            alt="New Mission Academy"
+            class="nma-logo-img"
+          />
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="nma-mobile-toggle" id="mobileToggle">
+          <span class="nma-hamburger-line"></span>
+          <span class="nma-hamburger-line"></span>
+          <span class="nma-hamburger-line"></span>
+        </button>
+
+        <ul class="nma-nav-menu" id="navMenu">
+          <li class="nma-nav-item">
+            <a href="#" class="nma-nav-link">Home</a>
+          </li>
+          <li class="nma-nav-item nma-dropdown">
+            <a href="" class="nma-nav-link"
+              >About <i class="fas fa-chevron-down"></i
+            ></a>
+            <div class="nma-dropdown-menu">
+              <a href="about.html" class="nma-dropdown-link">About Us</a>
+              <a href="#" class="nma-dropdown-link">Welcome Message</a>
+              <a href="#" class="nma-dropdown-link">Staff</a>
+            </div>
+          </li>
+          <li class="nma-nav-item nma-dropdown">
+            <a href="" class="nma-nav-link"
+              >Academics <i class="fas fa-chevron-down"></i
+            ></a>
+            <div class="nma-dropdown-menu">
+              <a href="#" class="nma-dropdown-link">Pre School</a>
+              <a href="#" class="nma-dropdown-link">Lower Primary</a>
+              <a href="#" class="nma-dropdown-link">Upper Primary</a>
+              <a href="#" class="nma-dropdown-link">JHS</a>
+            </div>
+          </li>
+          <li class="nma-nav-item nma-dropdown">
+            <a href="" class="nma-nav-link"
+              >Our System <i class="fas fa-chevron-down"></i
+            ></a>
+            <div class="nma-dropdown-menu">
+              <a href="#" class="nma-dropdown-link">Curriculum</a>
+              <a href="#" class="nma-dropdown-link">Safety & Welfare</a>
+              <a href="#" class="nma-dropdown-link">Smartribe Program</a>
+            </div>
+          </li>
+          <li class="nma-nav-item">
+            <a href="#" class="nma-nav-link">Admissions</a>
+          </li>
+          <li class="nma-nav-item">
+            <a href="#" class="nma-nav-link">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
     <!-- Header Section -->
     <header class="nma-header slide-1">
       <div class="nma-header-overlay"></div>
       <div class="nma-grid-overlay"></div>
-
-      <!-- Navigation -->
-      <nav class="nma-navbar" id="nmaNavbar">
-        <div class="nma-nav-container">
-          <div class="nma-logo">
-            <img
-              src="images/logo.png"
-              alt="New Mission Academy"
-              class="nma-logo-img"
-            />
-          </div>
-
-          <!-- Mobile Menu Toggle -->
-          <button class="nma-mobile-toggle" id="mobileToggle">
-            <span class="nma-hamburger-line"></span>
-            <span class="nma-hamburger-line"></span>
-            <span class="nma-hamburger-line"></span>
-          </button>
-
-          <ul class="nma-nav-menu" id="navMenu">
-            <li class="nma-nav-item">
-              <a href="#" class="nma-nav-link">Home</a>
-            </li>
-            <li class="nma-nav-item nma-dropdown">
-              <a href="" class="nma-nav-link"
-                >About <i class="fas fa-chevron-down"></i
-              ></a>
-              <div class="nma-dropdown-menu">
-                <a href="#" class="nma-dropdown-link">About Us</a>
-                <a href="#" class="nma-dropdown-link">Welcome Message</a>
-                <a href="#" class="nma-dropdown-link">Staff</a>
-              </div>
-            </li>
-            <li class="nma-nav-item nma-dropdown">
-              <a href="" class="nma-nav-link"
-                >Academics <i class="fas fa-chevron-down"></i
-              ></a>
-              <div class="nma-dropdown-menu">
-                <a href="#" class="nma-dropdown-link">Pre School</a>
-                <a href="#" class="nma-dropdown-link">Lower Primary</a>
-                <a href="#" class="nma-dropdown-link">Upper Primary</a>
-                <a href="#" class="nma-dropdown-link">JHS</a>
-              </div>
-            </li>
-            <li class="nma-nav-item nma-dropdown">
-              <a href="" class="nma-nav-link"
-                >Our System <i class="fas fa-chevron-down"></i
-              ></a>
-              <div class="nma-dropdown-menu">
-                <a href="#" class="nma-dropdown-link">Curriculum</a>
-                <a href="#" class="nma-dropdown-link">Safety & Welfare</a>
-                <a href="#" class="nma-dropdown-link">Smartribe Program</a>
-              </div>
-            </li>
-            <li class="nma-nav-item">
-              <a href="#" class="nma-nav-link">Admissions</a>
-            </li>
-            <li class="nma-nav-item">
-              <a href="#" class="nma-nav-link">Contact</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
 
       <!-- Header Content -->
       <div class="nma-header-content">
@@ -345,8 +345,15 @@
         <div class="nma-academics-header">
           <h2 class="nma-academics-title">
             Comprehensive Education From
-            <span class="nma-highlight">Early Years to Secondary</span>
+            <span class="nma-highlight"><br />Early Years to Secondary</span>
           </h2>
+          <p class="nma-about-description">
+            Explore our comprehensive academic programs designed to nurture
+            students at every stage of their educational journey. From early
+            childhood development to junior high school preparation, each
+            program is carefully crafted to build strong foundations and unlock
+            every student's potential.
+          </p>
         </div>
 
         <!-- Main Container with Navigation and Cards -->
@@ -604,6 +611,117 @@
             </button>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="homepage-school-programs">
+      <div class="container">
+        <div class="nma-programs-header">
+          <h2 class="nma-programs-title">
+            Specialized <span class="nma-highlight">Learning Programs</span>
+          </h2>
+          <p class="nma-programs-description">
+            Beyond traditional academics, we offer innovative programs designed
+            to develop well-rounded students with diverse skills and interests.
+            Our specialized programs nurture creativity, critical thinking, and
+            technological literacy.
+          </p>
+        </div>
+
+        <!-- Programs Grid -->
+        <div class="nma-programs-grid">
+          <!-- Brain Development Program -->
+          <div class="nma-program-card" data-program="brain-development">
+            <div
+              class="nma-program-bg"
+              style="background-image: url('images/smart1.jpg')"
+            >
+              <div class="nma-program-overlay"></div>
+              <div class="nma-program-initial-content">
+                <div class="nma-program-icon">
+                  <i class="fas fa-brain"></i>
+                </div>
+                <h3 class="nma-program-title">Brain Development Programs</h3>
+              </div>
+              <div class="nma-program-hover-content">
+                <p class="nma-program-description">
+                  Cognitive enhancement activities designed to boost memory,
+                  problem-solving skills, and critical thinking using proven
+                  methodologies.
+                </p>
+                <button class="nma-program-btn">
+                  Learn More <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Science and Technology Program -->
+          <div class="nma-program-card" data-program="science-tech">
+            <div
+              class="nma-program-bg"
+              style="background-image: url('images/science.jpg')"
+            >
+              <div class="nma-program-overlay"></div>
+              <div class="nma-program-initial-content">
+                <div class="nma-program-icon">
+                  <i class="fas fa-microscope"></i>
+                </div>
+                <h3 class="nma-program-title">Science & Technology</h3>
+              </div>
+              <div class="nma-program-hover-content">
+                <p class="nma-program-description">
+                  Hands-on STEM education that prepares students for the digital
+                  age. From basic coding to advanced scientific experiments.
+                </p>
+                <button class="nma-program-btn">
+                  Learn More <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Arts and Culture Program -->
+          <div class="nma-program-card" data-program="arts-culture">
+            <div
+              class="nma-program-bg"
+              style="background-image: url('images/culture.jpg')"
+            >
+              <div class="nma-program-overlay"></div>
+              <div class="nma-program-initial-content">
+                <div class="nma-program-icon">
+                  <i class="fas fa-palette"></i>
+                </div>
+                <h3 class="nma-program-title">Arts & Culture</h3>
+              </div>
+              <div class="nma-program-hover-content">
+                <p class="nma-program-description">
+                  Comprehensive arts education that nurtures creativity and
+                  cultural appreciation while exploring diverse art forms.
+                </p>
+                <button class="nma-program-btn">
+                  Learn More <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Call to Action -->
+        <!-- <div class="nma-programs-cta">
+          <h3 class="nma-programs-cta-title">Ready to Explore Our Programs?</h3>
+          <p class="nma-programs-cta-description">
+            Discover how our specialized programs can enhance your child's educational journey.
+          </p>
+          <div class="nma-programs-cta-buttons">
+            <button class="nma-primary-btn">
+              Schedule a Visit <i class="fas fa-calendar-alt"></i>
+            </button>
+            <button class="nma-secondary-btn">
+              Download Brochure <i class="fas fa-download"></i>
+            </button>
+          </div>
+        </div> -->
       </div>
     </section>
 
@@ -936,7 +1054,8 @@
                   <div class="nma-contact-details">
                     <span class="nma-contact-label">Address</span>
                     <span class="nma-contact-text"
-                      >New Mission Academy Campus<br />Kwadaso Agric, Kumasi</span
+                      >New Mission Academy Campus<br />Kwadaso Agric,
+                      Kumasi</span
                     >
                   </div>
                 </div>

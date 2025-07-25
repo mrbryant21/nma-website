@@ -228,19 +228,70 @@ document.querySelector(".nma-hero-btn").addEventListener("click", function (e) {
   }, 600);
 });
 
-// ===== PARALLAX EFFECT FOR HEADER =====
+// ===== STICKY NAVBAR AND PARALLAX EFFECT =====
 window.addEventListener("scroll", function () {
   const scrolled = window.pageYOffset;
-  const header = document.querySelector(".nma-header");
-  const rate = scrolled * -0.5;
 
-  if (header) {
-    header.style.transform = `translateY(${rate}px)`;
+  // Sticky Navbar functionality - Works on all pages
+  const navbar = document.getElementById("nmaNavbar");
+  const topBar = document.querySelector(".nma-top-bar");
+  const topBarHeight = topBar ? topBar.offsetHeight : 0;
+
+  // Make navbar sticky after scrolling past the top bar
+  if (scrolled > topBarHeight && navbar) {
+    navbar.classList.add("nma-sticky");
+    console.log("Adding sticky class to navbar"); // Debug log
+  } else if (navbar) {
+    navbar.classList.remove("nma-sticky");
+    console.log("Removing sticky class from navbar"); // Debug log
+  }
+
+  // Header parallax - Check for both home and about page headers
+  const homeHeader = document.querySelector(".nma-header");
+  const aboutHeader = document.querySelector(".nma-about-header");
+
+  if (homeHeader) {
+    // Home page parallax
+    const headerRate = scrolled * -0.5;
+    homeHeader.style.transform = `translateY(${headerRate}px)`;
+  }
+
+  // About header doesn't need parallax effect
+
+  // Facilities section parallax
+  const facilitiesSection = document.querySelector(
+    ".school-facilities-video-section"
+  );
+  if (facilitiesSection && window.innerWidth > 768) {
+    const facilitiesRate = scrolled * -0.3;
+    facilitiesSection.style.transform = `translateY(${facilitiesRate}px)`;
+  }
+
+  // Stats animation check
+  if (!statsAnimated && isStatsInViewport()) {
+    animateCounters();
   }
 });
 
 // ===== LOADING ANIMATION =====
 document.addEventListener("DOMContentLoaded", function () {
+  console.log("DOM Content Loaded - Initializing sticky navbar");
+
+  // Initialize sticky navbar state on page load
+  const scrolled = window.pageYOffset;
+  const navbar = document.getElementById("nmaNavbar");
+  const topBar = document.querySelector(".nma-top-bar");
+  const topBarHeight = topBar ? topBar.offsetHeight : 0;
+
+  console.log("Initial scroll position:", scrolled);
+  console.log("Navbar found:", !!navbar);
+  console.log("Top bar height:", topBarHeight);
+
+  if (scrolled > topBarHeight && navbar) {
+    navbar.classList.add("nma-sticky");
+    console.log("Added sticky class on page load");
+  }
+
   // Add fade-in animation to header content
   const stages = document.querySelector(".nma-academic-stages");
 
@@ -369,8 +420,8 @@ const isAcademicsSectionVisible = () => {
 // Get slides per view based on screen size
 const getAcademicsSlidesPerView = () => {
   if (window.innerWidth <= 767) return 1; // Mobile: 1 slide
-  if (window.innerWidth <= 1023) return 2; // Tablet: 2 slides
-  return 3; // Desktop: 3 slides
+  if (window.innerWidth <= 1023) return 1; // Tablet: 1 slide
+  return 1; // Desktop: 1 slide
 };
 
 // Calculate maximum index based on current slides per view
@@ -381,9 +432,8 @@ const getAcademicsMaxIndex = () => {
     // Mobile: can navigate to any slide (0 to totalSlides - 1)
     return academicsSlides.length - 1;
   } else {
-    // Desktop/Tablet: prevent going past the last visible set
-    // With 6 slides and 3 visible, max index is 3 (showing slides 3,4,5)
-    return academicsSlides.length - slidesPerView;
+    const maxIndex = Math.max(0, academicsSlides.length - slidesPerView);
+    return maxIndex;
   }
 };
 
@@ -395,7 +445,10 @@ const updateAcademicsSlider = () => {
   const maxIndex = getAcademicsMaxIndex();
 
   // Ensure current index doesn't exceed maximum
-  academicsCurrentIndex = Math.min(academicsCurrentIndex, maxIndex);
+  academicsCurrentIndex = Math.max(
+    0,
+    Math.min(academicsCurrentIndex, maxIndex)
+  );
 
   let translateX;
 
@@ -404,7 +457,6 @@ const updateAcademicsSlider = () => {
     translateX = -(academicsCurrentIndex * (100 / academicsSlides.length));
   } else {
     // Desktop/Tablet: each step moves by the width of one slide
-    // With 200% width and 6 slides, each slide is 33.33% of container
     const slideWidthPercent = 100 / slidesPerView;
     translateX = -(academicsCurrentIndex * slideWidthPercent);
   }
@@ -479,48 +531,40 @@ const updateAcademicsNavButtons = () => {
 const prevAcademicsSlide = () => {
   const maxIndex = getAcademicsMaxIndex();
 
-  if (academicsCurrentIndex > 0) {
-    academicsIsTransitioning = true;
-    academicsCurrentIndex--;
-    updateAcademicsSlider();
+  academicsIsTransitioning = true;
 
-    setTimeout(() => {
-      academicsIsTransitioning = false;
-    }, 600);
+  if (academicsCurrentIndex > 0) {
+    academicsCurrentIndex--;
   } else {
     // Loop to last valid position when at beginning
-    academicsIsTransitioning = true;
     academicsCurrentIndex = maxIndex;
-    updateAcademicsSlider();
-
-    setTimeout(() => {
-      academicsIsTransitioning = false;
-    }, 600);
   }
+
+  updateAcademicsSlider();
+
+  setTimeout(() => {
+    academicsIsTransitioning = false;
+  }, 600);
 };
 
 // Navigate to next slide
 const nextAcademicsSlide = () => {
   const maxIndex = getAcademicsMaxIndex();
 
-  if (academicsCurrentIndex < maxIndex) {
-    academicsIsTransitioning = true;
-    academicsCurrentIndex++;
-    updateAcademicsSlider();
+  academicsIsTransitioning = true;
 
-    setTimeout(() => {
-      academicsIsTransitioning = false;
-    }, 600);
+  if (academicsCurrentIndex < maxIndex) {
+    academicsCurrentIndex++;
   } else {
     // Loop back to beginning when at end
-    academicsIsTransitioning = true;
     academicsCurrentIndex = 0;
-    updateAcademicsSlider();
-
-    setTimeout(() => {
-      academicsIsTransitioning = false;
-    }, 600);
   }
+
+  updateAcademicsSlider();
+
+  setTimeout(() => {
+    academicsIsTransitioning = false;
+  }, 600);
 };
 
 // Go to specific slide
@@ -609,12 +653,7 @@ const startAcademicsAutoPlay = () => {
   stopAcademicsAutoPlay();
   academicsAutoPlay = setInterval(() => {
     if (!academicsIsTransitioning && isAcademicsSectionVisible()) {
-      const maxIndex = getAcademicsMaxIndex();
-      if (academicsCurrentIndex >= maxIndex) {
-        goToAcademicsSlide(0); // Loop back to start
-      } else {
-        nextAcademicsSlide();
-      }
+      nextAcademicsSlide(); // This will now handle looping properly
     }
   }, academicsAutoPlayInterval);
 };
@@ -740,8 +779,8 @@ const handleStatsScroll = () => {
   }
 };
 
-// Add scroll listener for stats animation
-window.addEventListener("scroll", handleStatsScroll);
+// Add scroll listener for stats animation (now handled in main scroll listener above)
+// window.addEventListener("scroll", handleStatsScroll);
 
 // Also check on page load in case section is already visible
 window.addEventListener("load", () => {
@@ -781,4 +820,105 @@ document.addEventListener("DOMContentLoaded", function () {
       }, 150);
     });
   });
+});
+
+// ===== VIDEO MODAL FUNCTIONALITY =====
+document.addEventListener("DOMContentLoaded", function () {
+  console.log("DOM loaded, initializing video modal...");
+
+  const videoButton = document.getElementById("videoButton");
+  const videoModal = document.getElementById("videoModal");
+  const videoClose = document.getElementById("videoClose");
+  const videoFrame = document.getElementById("videoFrame");
+
+  console.log("Video elements found:", {
+    button: !!videoButton,
+    modal: !!videoModal,
+    close: !!videoClose,
+    frame: !!videoFrame,
+  });
+
+  // Sample video URL - replace with your actual video URL
+  const videoUrl = "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&rel=0";
+
+  // Open video modal
+  if (videoButton) {
+    videoButton.addEventListener("click", function (e) {
+      e.preventDefault();
+      console.log("Video button clicked!");
+
+      if (videoFrame && videoModal) {
+        videoFrame.src = videoUrl;
+        videoModal.style.display = "block";
+        document.body.style.overflow = "hidden";
+        console.log("Video modal should be open now");
+      } else {
+        console.error("Video frame or modal not found");
+      }
+    });
+  } else {
+    console.error("Video button not found!");
+  }
+
+  // Close video modal
+  function closeVideoModal() {
+    console.log("Closing video modal...");
+    if (videoModal && videoFrame) {
+      videoModal.style.display = "none";
+      videoFrame.src = "";
+      document.body.style.overflow = "auto";
+    }
+  }
+
+  // Close button click
+  if (videoClose) {
+    videoClose.addEventListener("click", function (e) {
+      e.preventDefault();
+      closeVideoModal();
+    });
+  }
+
+  // Click outside modal to close
+  if (videoModal) {
+    videoModal.addEventListener("click", function (e) {
+      if (e.target === videoModal) {
+        closeVideoModal();
+      }
+    });
+  }
+
+  // Escape key to close modal
+  document.addEventListener("keydown", function (e) {
+    if (
+      e.key === "Escape" &&
+      videoModal &&
+      videoModal.style.display === "block"
+    ) {
+      closeVideoModal();
+    }
+  });
+});
+
+// ===== INTERSECTION OBSERVER FOR ANIMATIONS =====
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: "0px 0px -50px 0px",
+};
+
+const observer = new IntersectionObserver(function (entries) {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("animate-in");
+    }
+  });
+}, observerOptions);
+
+// Observe facilities section when it enters viewport
+document.addEventListener("DOMContentLoaded", function () {
+  const facilitiesSection = document.querySelector(
+    ".school-facilities-video-section"
+  );
+  if (facilitiesSection) {
+    observer.observe(facilitiesSection);
+  }
 });
