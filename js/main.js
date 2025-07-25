@@ -376,7 +376,15 @@ const getAcademicsSlidesPerView = () => {
 // Calculate maximum index based on current slides per view
 const getAcademicsMaxIndex = () => {
   const slidesPerView = getAcademicsSlidesPerView();
-  return Math.max(0, academicsSlides.length - slidesPerView);
+
+  if (slidesPerView === 1) {
+    // Mobile: can navigate to any slide (0 to totalSlides - 1)
+    return academicsSlides.length - 1;
+  } else {
+    // Desktop/Tablet: prevent going past the last visible set
+    // With 6 slides and 3 visible, max index is 3 (showing slides 3,4,5)
+    return academicsSlides.length - slidesPerView;
+  }
 };
 
 // Update slider position
@@ -384,8 +392,22 @@ const updateAcademicsSlider = () => {
   if (!academicsTrack || academicsSlides.length === 0) return;
 
   const slidesPerView = getAcademicsSlidesPerView();
-  const slideWidth = 100 / academicsSlides.length; // Width per slide based on total slides
-  const translateX = -(academicsCurrentIndex * slideWidth);
+  const maxIndex = getAcademicsMaxIndex();
+
+  // Ensure current index doesn't exceed maximum
+  academicsCurrentIndex = Math.min(academicsCurrentIndex, maxIndex);
+
+  let translateX;
+
+  if (slidesPerView === 1) {
+    // Mobile: show one slide at a time
+    translateX = -(academicsCurrentIndex * (100 / academicsSlides.length));
+  } else {
+    // Desktop/Tablet: each step moves by the width of one slide
+    // With 200% width and 6 slides, each slide is 33.33% of container
+    const slideWidthPercent = 100 / slidesPerView;
+    translateX = -(academicsCurrentIndex * slideWidthPercent);
+  }
 
   academicsTrack.style.transform = `translateX(${translateX}%)`;
 
@@ -407,17 +429,31 @@ const updateAcademicsActiveStates = () => {
     .forEach((item) => item.classList.remove("active"));
 
   // Add active states to currently visible slides
-  for (
-    let i = academicsCurrentIndex;
-    i < academicsCurrentIndex + slidesPerView && i < academicsSlides.length;
-    i++
-  ) {
-    academicsSlides[i].classList.add("active");
+  if (slidesPerView === 1) {
+    // Mobile: only show current slide as active
+    if (academicsSlides[academicsCurrentIndex]) {
+      academicsSlides[academicsCurrentIndex].classList.add("active");
+    }
 
-    // Also update corresponding stage item
+    // Update corresponding stage item
     const stageItems = document.querySelectorAll(".nma-stage-item");
-    if (stageItems[i]) {
-      stageItems[i].classList.add("active");
+    if (stageItems[academicsCurrentIndex]) {
+      stageItems[academicsCurrentIndex].classList.add("active");
+    }
+  } else {
+    // Desktop/Tablet: show multiple slides as active
+    for (
+      let i = academicsCurrentIndex;
+      i < academicsCurrentIndex + slidesPerView && i < academicsSlides.length;
+      i++
+    ) {
+      academicsSlides[i].classList.add("active");
+
+      // Also update corresponding stage item
+      const stageItems = document.querySelectorAll(".nma-stage-item");
+      if (stageItems[i]) {
+        stageItems[i].classList.add("active");
+      }
     }
   }
 };
@@ -441,6 +477,8 @@ const updateAcademicsNavButtons = () => {
 
 // Navigate to previous slide
 const prevAcademicsSlide = () => {
+  const maxIndex = getAcademicsMaxIndex();
+
   if (academicsCurrentIndex > 0) {
     academicsIsTransitioning = true;
     academicsCurrentIndex--;
@@ -450,23 +488,21 @@ const prevAcademicsSlide = () => {
       academicsIsTransitioning = false;
     }, 600);
   } else {
-    // Loop to last slide when at beginning
-    const maxIndex = getAcademicsMaxIndex();
-    if (maxIndex > 0) {
-      academicsIsTransitioning = true;
-      academicsCurrentIndex = maxIndex;
-      updateAcademicsSlider();
+    // Loop to last valid position when at beginning
+    academicsIsTransitioning = true;
+    academicsCurrentIndex = maxIndex;
+    updateAcademicsSlider();
 
-      setTimeout(() => {
-        academicsIsTransitioning = false;
-      }, 600);
-    }
+    setTimeout(() => {
+      academicsIsTransitioning = false;
+    }, 600);
   }
 };
 
 // Navigate to next slide
 const nextAcademicsSlide = () => {
   const maxIndex = getAcademicsMaxIndex();
+
   if (academicsCurrentIndex < maxIndex) {
     academicsIsTransitioning = true;
     academicsCurrentIndex++;
@@ -714,4 +750,35 @@ window.addEventListener("load", () => {
       animateCounters();
     }
   }, 500);
+});
+
+// ===== NEWS AND EVENTS TAB FUNCTIONALITY =====
+document.addEventListener("DOMContentLoaded", function () {
+  const tabs = document.querySelectorAll(".nma-news-tab");
+  const contents = document.querySelectorAll(".nma-news-content");
+
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", function () {
+      const targetTab = this.getAttribute("data-tab");
+
+      // Remove active class from all tabs and contents
+      tabs.forEach((t) => t.classList.remove("active"));
+      contents.forEach((c) => c.classList.remove("active"));
+
+      // Add active class to clicked tab
+      this.classList.add("active");
+
+      // Show corresponding content
+      const targetContent = document.getElementById(targetTab + "-content");
+      if (targetContent) {
+        targetContent.classList.add("active");
+      }
+
+      // Add smooth transition effect
+      targetContent.style.opacity = "0";
+      setTimeout(() => {
+        targetContent.style.opacity = "1";
+      }, 150);
+    });
+  });
 });
