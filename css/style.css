@@ -1956,3 +1956,252 @@ body {
     font-size: 16px;
   }
 }
+
+/* ===== KEY STATISTICS SECTION ===== */
+.key-statistics-section {
+  padding: 80px 0;
+  background-image: url('../images/nma-building.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  overflow: hidden;
+}
+
+.key-statistics-section .nma-stats-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg,
+      rgba(3, 7, 43, 0.6) 0%,
+      rgba(0, 127, 220, 0.5) 100%);
+  z-index: 1;
+}
+
+.nma-stats-content {
+  position: relative;
+  z-index: 2;
+}
+
+.nma-stats-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.nma-stats-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: white;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.nma-stats-description {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.nma-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-bottom: 50px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.nma-stat-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 20px;
+  padding: 35px 25px;
+  text-align: center;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.nma-stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.05) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+
+.nma-stat-card:hover::before {
+  opacity: 1;
+}
+
+.nma-stat-card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.nma-stat-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, var(--secondary-color), #4a90e2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 25px;
+  font-size: 32px;
+  color: white;
+  transition: all 0.4s ease;
+}
+
+.nma-stat-card:hover .nma-stat-icon {
+  transform: scale(1.1) rotate(10deg);
+  box-shadow: 0 15px 30px rgba(0, 127, 220, 0.4);
+}
+
+.nma-stat-number {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 10px;
+  font-family: 'Montserrat Alternates', sans-serif;
+  line-height: 1;
+  display: block;
+}
+
+.nma-stat-label {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.nma-stat-sublabel {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.4;
+}
+
+.nma-stats-cta {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.nma-stats-btn {
+  padding: 18px 40px;
+  font-size: 18px;
+  font-weight: 600;
+  background: white;
+  color: var(--primary-color);
+  border: none;
+  border-radius: 50px;
+  transition: all 0.4s ease;
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+}
+
+.nma-stats-btn:hover {
+  background: var(--secondary-color);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive Design for Statistics Section */
+@media (max-width: 768px) {
+  .key-statistics-section {
+    padding: 80px 0;
+  }
+
+  .nma-stats-header {
+    margin-bottom: 60px;
+  }
+
+  .nma-stats-title {
+    font-size: 2.2rem;
+  }
+
+  .nma-stats-description {
+    font-size: 1rem;
+  }
+
+  .nma-stats-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-bottom: 40px;
+  }
+
+  .nma-stat-card {
+    padding: 30px 20px;
+  }
+
+  .nma-stat-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+  }
+
+  .nma-stat-number {
+    font-size: 2.8rem;
+  }
+
+  .nma-stat-label {
+    font-size: 1rem;
+  }
+
+  .nma-stats-btn {
+    padding: 15px 30px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .nma-stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .key-statistics-section {
+    padding: 60px 0;
+  }
+
+  .nma-stats-title {
+    font-size: 1.8rem;
+  }
+
+  .nma-stats-description {
+    font-size: 0.9rem;
+  }
+
+  .nma-stat-card {
+    padding: 25px 15px;
+  }
+
+  .nma-stat-number {
+    font-size: 2.4rem;
+  }
+
+  .nma-stat-label {
+    font-size: 0.9rem;
+  }
+
+  .nma-stat-sublabel {
+    font-size: 0.8rem;
+  }
+}
