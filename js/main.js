@@ -922,3 +922,6 @@ document.addEventListener("DOMContentLoaded", function () {
     observer.observe(facilitiesSection);
   }
 });
+
+// ===== CRECHE LEARNING FACILITIES CAROUSEL =====
+// Carousel functionality moved to app.js

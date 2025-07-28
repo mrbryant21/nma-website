@@ -2720,7 +2720,7 @@ body {
   }
 
   .nma-news-main-title {
-    font-size: 1.8rem;
+    font-size: 1.8
   }
 
   .nma-news-description {
@@ -5286,6 +5286,610 @@ body {
   background: var(--secondary-color);
 }
 
-.bg-science{
+.bg-science {
   background: var(--primary-color);
+}
+
+/* ===== CRECHE PAGE STYLES ===== */
+
+/* Creche Program Overview Section */
+.nma-creche-overview-section {
+  padding: 80px 0;
+  background-color: white;
+}
+
+.nma-creche-overview-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.nma-creche-overview-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.nma-creche-overview-title {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.nma-creche-overview-description {
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.nma-creche-overview-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.nma-creche-highlight-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 20px;
+  border-bottom: 1px solid var(--primary-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nma-creche-highlight-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.nma-creche-highlight-icon {
+  width: 45px;
+  height: 45px;
+  background-color: var(--secondary-color);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.nma-creche-highlight-title {
+  font-size: 1.1rem;
+  color: var(--primary-color);
+  margin: 0;
+  font-weight: 600;
+}
+
+.nma-creche-overview-image {
+  position: relative;
+}
+
+.nma-creche-overview-img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.nma-creche-overview-stats {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-around;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.nma-creche-stat-item {
+  text-align: center;
+}
+
+.nma-creche-stat-number {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--secondary-color);
+  margin-bottom: 5px;
+}
+
+.nma-creche-stat-label {
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nma-creche-overview-section {
+    padding: 60px 0;
+  }
+
+  .nma-creche-overview-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .nma-creche-overview-title {
+    font-size: 2rem;
+  }
+
+  .nma-creche-overview-description {
+    font-size: 1rem;
+  }
+
+  .nma-creche-highlight-item {
+    padding: 12px 15px;
+  }
+
+  .nma-creche-highlight-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .nma-creche-highlight-title {
+    font-size: 1rem;
+  }
+
+  .nma-creche-overview-img {
+    height: 350px;
+  }
+
+  .nma-creche-overview-stats {
+    position: static;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nma-creche-overview-container {
+    padding: 0 15px;
+  }
+
+  .nma-creche-overview-title {
+    font-size: 1.8rem;
+  }
+
+  .nma-creche-highlight-item {
+    flex-direction: row;
+    text-align: left;
+    gap: 12px;
+    padding: 10px 15px;
+  }
+
+  .nma-creche-overview-img {
+    height: 280px;
+  }
+
+  .nma-creche-stat-number {
+    font-size: 1.5rem;
+  }
+}
+
+/* Creche Daily Schedule Section */
+.nma-creche-daily-schedule {
+  padding: 80px 0;
+  background-color: #f8f9fa;
+}
+
+
+
+.nma-creche-schedule-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.nma-creche-schedule-title {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.nma-creche-schedule-subtitle {
+  font-size: 1.1rem;
+  color: #666;
+  margin: 0;
+}
+
+.nma-creche-schedule-timeline {
+  position: relative;
+}
+
+.nma-creche-timeline-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.nma-creche-timeline-row:last-child {
+  margin-bottom: 0;
+}
+
+.nma-creche-timeline-item {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+}
+
+.nma-creche-timeline-time {
+  width: 100px;
+  flex-shrink: 0;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.nma-creche-time-text {
+  display: inline-block;
+  background: var(--secondary-color);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.nma-creche-timeline-content {
+  flex: 1;
+  margin-left: 20px;
+  background: white;
+  padding: 20px;
+  /* border-radius: 12px; */
+  border-left: 4px solid var(--secondary-color);
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nma-creche-timeline-content:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.nma-creche-timeline-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--primary-color);
+  color: white;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+.nma-creche-timeline-title {
+  font-size: 1.3rem;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.nma-creche-timeline-description {
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nma-creche-daily-schedule {
+    padding: 60px 0;
+  }
+
+  .nma-creche-schedule-header {
+    margin-bottom: 40px;
+  }
+
+  .nma-creche-schedule-title {
+    font-size: 2rem;
+  }
+
+  .nma-creche-timeline-row {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .nma-creche-timeline-time {
+    width: 80px;
+  }
+
+  .nma-creche-time-text {
+    font-size: 0.8rem;
+    padding: 6px 8px;
+  }
+
+  .nma-creche-timeline-content {
+    margin-left: 15px;
+    padding: 18px;
+  }
+
+  .nma-creche-timeline-title {
+    font-size: 1.1rem;
+  }
+
+  .nma-creche-timeline-description {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nma-creche-schedule-container {
+    padding: 0 15px;
+  }
+
+  .nma-creche-schedule-title {
+    font-size: 1.8rem;
+  }
+
+  .nma-creche-timeline-row {
+    gap: 15px;
+  }
+
+  .nma-creche-timeline-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nma-creche-timeline-time {
+    width: auto;
+    margin-bottom: 10px;
+  }
+
+  .nma-creche-timeline-content {
+    margin-left: 0;
+    width: 100%;
+    padding: 15px;
+  }
+
+  .nma-creche-timeline-content:hover {
+    transform: none;
+  }
+}
+
+/* ===== CRECHE LEARNING FACILITIES CAROUSEL ===== */
+
+.nma-creche-facilities-carousel-section {
+  padding: 80px 0 0 0;
+  background-color: #f8f9fa;
+  overflow: hidden;
+}
+
+.nma-facilities-carousel-header {
+  /* max-width: 1200px; */
+  margin: 0 auto;
+  padding: 0 20px 60px;
+  /* text-align: center; */
+  position: relative;
+}
+
+.nma-facilities-carousel-title {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.nma-facilities-carousel-subtitle {
+  font-size: 1.1rem;
+  color: #666;
+  margin: 0;
+}
+
+.nma-facilities-carousel-nav {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.nma-facilities-nav-btn {
+  width: 50px;
+  height: 50px;
+  border: none;
+  background: var(--secondary-color);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.2rem;
+}
+
+.nma-facilities-nav-btn:hover {
+  background: var(--primary-color);
+  transform: scale(1.1);
+}
+
+.nma-facilities-nav-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.nma-facilities-carousel-container {
+  width: 100%;
+  overflow: hidden;
+  cursor: grab;
+  user-select: none;
+}
+
+.nma-facilities-carousel-container:active {
+  cursor: grabbing;
+}
+
+.nma-facilities-carousel-track {
+  display: flex;
+  transition: transform 0.5s ease;
+  will-change: transform;
+  width: max-content;
+  /* Ensures track width accommodates all slides */
+}
+
+.nma-facilities-carousel-slide {
+  flex: 0 0 400px;
+  height: 300px;
+  margin-right: 0;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.nma-facilities-carousel-slide:hover {
+  transform: scale(1.02);
+}
+
+.nma-facilities-slide-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.nma-facilities-carousel-slide:hover .nma-facilities-slide-image {
+  transform: scale(1.05);
+}
+
+.nma-facilities-carousel-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 40px 20px 80px;
+}
+
+.nma-facilities-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  background: #ccc;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nma-facilities-indicator.active {
+  background: var(--secondary-color);
+  transform: scale(1.2);
+}
+
+.nma-facilities-indicator:hover {
+  background: var(--primary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nma-creche-facilities-carousel-section {
+    padding: 60px 0 0 0;
+  }
+
+  .nma-facilities-carousel-header {
+    padding: 0 15px 40px;
+  }
+
+  .nma-facilities-carousel-title {
+    font-size: 2rem;
+  }
+
+  .nma-facilities-carousel-nav {
+    position: static;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .nma-facilities-nav-btn {
+    width: 45px;
+    height: 45px;
+    font-size: 1rem;
+  }
+
+  .nma-facilities-carousel-slide {
+    flex: 0 0 300px;
+    height: 250px;
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .nma-facilities-carousel-header {
+    padding: 0 10px 30px;
+  }
+
+  .nma-facilities-carousel-title {
+    font-size: 1.8rem;
+  }
+
+  .nma-facilities-carousel-slide {
+    flex: 0 0 280px;
+    height: 220px;
+    margin-right: 0;
+  }
+
+  .nma-facilities-carousel-indicators {
+    padding: 30px 10px 60px;
+  }
+}
+
+.nma-facilities-slide-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.35);
+  /* semi-transparent black */
+  transition: opacity 0.3s ease;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.nma-facilities-carousel-slide:hover .nma-facilities-slide-overlay {
+  opacity: 0;
+}
+
+.nma-facilities-carousel-slide {
+  position: relative;
+}
+
+.health-and-safety-item{
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 26px;
+  transition: all .2s ease-in;
+}
+
+.health-and-safety-item:hover{
+  transform: translateY(-5px);
+}
+.hs-title{
+  font-weight: 650;
+}
+
+.nma-health-safety-title{
+  font-weight: 700;
+}
+
+.hs-item-1{
+  border-left: 4px solid var(--secondary-color);
+}
+
+.hs-item-2{
+  border-left: 4px solid var(--primary-color);
+}
+
+.hs-item-3{
+  border-left: 4px solid #c0392b;
 }
