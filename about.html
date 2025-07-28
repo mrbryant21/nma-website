@@ -84,12 +84,14 @@
             <a href="index.html" class="nma-nav-link">Home</a>
           </li>
           <li class="nma-nav-item nma-dropdown">
-            <a href="" class="nma-nav-link active"
+            <a href="" class="nma-nav-link"
               >About <i class="fas fa-chevron-down"></i
             ></a>
             <div class="nma-dropdown-menu">
               <a href="about.html" class="nma-dropdown-link">About Us</a>
-              <a href="#" class="nma-dropdown-link">Welcome Message</a>
+              <a href="welcome-message.html" class="nma-dropdown-link"
+                >Welcome Message</a
+              >
               <a href="#" class="nma-dropdown-link">Gallery</a>
             </div>
           </li>
@@ -123,7 +125,6 @@
         </ul>
       </div>
     </nav>
-
     <!-- About Us Header Section -->
     <header class="nma-about-header">
       <div class="nma-about-header-overlay"></div>
@@ -623,27 +624,5 @@
     ></script>
     <script src="js/main.js"></script>
     <script src="js/app.js"></script>
-    <script src="js/about-debug.js"></script>
-    <script>
-      // Inline check to ensure navbar works on about page
-      document.addEventListener("DOMContentLoaded", function () {
-        console.log("Inline about page script loaded");
-
-        // Force a check for sticky navbar
-        function checkStickyNavbar() {
-          const scrolled = window.pageYOffset;
-          const navbar = document.getElementById("nmaNavbar");
-
-          if (navbar && scrolled > 0) {
-            navbar.classList.add("nma-sticky");
-            console.log("Inline script added sticky class");
-          }
-        }
-
-        // Check initially and on scroll
-        checkStickyNavbar();
-        window.addEventListener("scroll", checkStickyNavbar);
-      });
-    </script>
   </body>
 </html>

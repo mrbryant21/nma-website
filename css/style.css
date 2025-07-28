@@ -3106,24 +3106,7 @@ body {
 }
 
 
-.homepage-school-programs {
-  padding: 100px 0;
-  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-  position: relative;
-  overflow: hidden;
-}
 
-.homepage-school-programs::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23e2e8f0" stroke-width="0.5" opacity="0.3"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-  opacity: 0.4;
-  /* z-index: -1; */
-}
 
 .nma-programs-header {
   margin-bottom: 50px;
@@ -4482,4 +4465,827 @@ body {
     padding: 15px 25px;
     font-size: 1rem;
   }
+}
+
+/* ===== WELCOME MESSAGE PAGE STYLES ===== */
+.nma-welcome-page-header {
+  position: relative;
+  height: 60vh;
+  min-height: 500px;
+  background: linear-gradient(135deg, var(--primary-color) 0%, #1a4480 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.nma-welcome-page-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('../images/nma-building.jpg') center/cover;
+  opacity: 0.1;
+  z-index: 1;
+}
+
+.nma-welcome-page-header .nma-header-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(3, 7, 43, 0.25) 0%, rgba(0, 127, 220, 0.25) 100%);
+  z-index: 2;
+}
+
+.nma-welcome-page-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  max-width: 1200px;
+  padding: 0 20px;
+  animation: fadeInUp 1s ease-out;
+}
+
+.nma-welcome-breadcrumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+  font-size: 0.95rem;
+}
+
+.nma-welcome-breadcrumb a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  padding: 5px 10px;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+}
+
+.nma-welcome-breadcrumb a:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.nma-welcome-breadcrumb-sep {
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 300;
+}
+
+.nma-welcome-breadcrumb-active {
+  color: white;
+  font-weight: 500;
+  padding: 5px 10px;
+  background: rgba(0, 127, 220, 0.3);
+  border-radius: 15px;
+  backdrop-filter: blur(5px);
+}
+
+.nma-welcome-page-title {
+  font-size: 3.8rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 20px;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+.nma-welcome-page-subtitle {
+  font-size: 1.4rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 0;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+}
+
+.nma-welcome-main-content {
+  background: #f8f9fa;
+  min-height: 50vh;
+  padding: 80px 0;
+}
+
+/* Decorative Elements for Welcome Page Header */
+.nma-welcome-page-header::after {
+  content: '';
+  position: absolute;
+  bottom: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(45deg, transparent 49%, rgba(255, 255, 255, 0.1) 50%, transparent 51%);
+  border-radius: 50%;
+  z-index: 4;
+  animation: pulse 3s infinite;
+}
+
+/* Animation for Welcome Page */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    transform: translateX(-50%) scale(1);
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: translateX(-50%) scale(1.1);
+    opacity: 1;
+  }
+}
+
+/* Responsive Design for Welcome Page */
+@media (max-width: 1024px) {
+  .nma-welcome-page-header {
+    height: 55vh;
+    min-height: 450px;
+  }
+
+  .nma-welcome-page-title {
+    font-size: 3.2rem;
+  }
+
+  .nma-welcome-page-subtitle {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .nma-welcome-page-header {
+    height: 50vh;
+    min-height: 400px;
+  }
+
+  .nma-welcome-page-content {
+    padding: 0 15px;
+  }
+
+  .nma-welcome-breadcrumb {
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 0.9rem;
+  }
+
+  .nma-welcome-page-title {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+  }
+
+  .nma-welcome-page-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .nma-welcome-main-content {
+    padding: 60px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .nma-welcome-page-header {
+    height: 45vh;
+    min-height: 350px;
+  }
+
+  .nma-welcome-breadcrumb {
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+  }
+
+  .nma-welcome-page-title {
+    font-size: 2rem;
+    letter-spacing: 0;
+  }
+
+  .nma-welcome-page-subtitle {
+    font-size: 1rem;
+  }
+
+  .nma-welcome-main-content {
+    padding: 40px 0;
+  }
+}
+
+/* ===== WELCOME MESSAGE CONTENT STYLES ===== */
+.nma-welcome-main-content {
+  padding: 0;
+}
+
+/* School Head Introduction Section */
+.nma-welcome-intro-section {
+  background: white;
+  padding: 80px 0;
+}
+
+.nma-welcome-intro {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.nma-welcome-photo-section {
+  display: flex;
+  justify-content: center;
+}
+
+.nma-school-head-photo {
+  position: relative;
+  width: 280px;
+  height: 350px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.nma-school-head-photo:hover {
+  transform: translateY(-10px);
+}
+
+.nma-head-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.nma-photo-frame {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border: 3px solid var(--secondary-color);
+  border-radius: 25px;
+  z-index: -1;
+}
+
+.nma-welcome-text-section {
+  padding: 20px 0;
+}
+
+.nma-welcome-greeting {
+  margin-bottom: 30px;
+}
+
+.nma-greeting-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.nma-greeting-subtitle {
+  font-size: 1.2rem;
+  color: var(--secondary-color);
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
+.nma-welcome-opening {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--secondary-color);
+  margin-bottom: 25px;
+  font-weight: 500;
+}
+
+.nma-welcome-paragraph {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+/* Achievements Section */
+.nma-welcome-achievements-section {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 80px 0;
+}
+
+.nma-achievements-content {
+  text-align: center;
+}
+
+.nma-achievements-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 50px;
+}
+
+.nma-achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.nma-achievement-item {
+  background: white;
+  padding: 40px 20px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.nma-achievement-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+.nma-achievement-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, var(--secondary-color), #0056a3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 2rem;
+  color: white;
+}
+
+.nma-achievement-text h4 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 5px;
+}
+
+.nma-achievement-text p {
+  font-size: 1rem;
+  color: #666;
+  margin: 0;
+}
+
+/* Educational Philosophy Section */
+.nma-welcome-philosophy-section {
+  background: white;
+  padding: 80px 0;
+}
+
+.nma-philosophy-content {
+  text-align: center;
+}
+
+.nma-philosophy-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 50px;
+}
+
+.nma-philosophy-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.nma-philosophy-item {
+  padding: 40px 30px;
+  background: #f8f9fa;
+  border-radius: 15px;
+  text-align: center;
+  border: 1px solid #e9ecef;
+  transition: all 0.3s ease;
+}
+
+.nma-philosophy-item:hover {
+  background: white;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+}
+
+.nma-philosophy-icon {
+  width: 70px;
+  height: 70px;
+  background: var(--secondary-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 1.8rem;
+  color: white;
+}
+
+.nma-philosophy-item h4 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+}
+
+.nma-philosophy-item p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #666;
+  margin: 0;
+}
+
+/* What Makes Us Unique Section */
+.nma-welcome-unique-section {
+  background: linear-gradient(135deg, var(--primary-color) 0%, #1a4480 100%);
+  padding: 80px 0;
+  color: white;
+}
+
+.nma-unique-content {
+  text-align: center;
+}
+
+.nma-unique-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 50px;
+}
+
+.nma-unique-features {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.nma-unique-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+  margin-bottom: 40px;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.nma-feature-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--secondary-color);
+  min-width: 80px;
+  text-align: center;
+}
+
+.nma-feature-content h4 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.nma-feature-content p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+}
+
+/* Personal Message Section */
+.nma-welcome-personal-section {
+  background: white;
+  padding: 80px 0;
+}
+
+.nma-personal-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.nma-personal-message {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 30px;
+  text-align: justify;
+}
+
+.nma-welcome-signature {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 50px;
+  padding: 40px;
+  background: #f8f9fa;
+  border-radius: 15px;
+  border-left: 5px solid var(--secondary-color);
+}
+
+.nma-signature-img {
+  max-width: 200px;
+  height: auto;
+  opacity: 0.8;
+}
+
+.nma-signature-details {
+  text-align: left;
+}
+
+.nma-signature-name {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 5px;
+}
+
+.nma-signature-title {
+  font-size: 1rem;
+  color: var(--secondary-color);
+  margin-bottom: 3px;
+}
+
+.nma-signature-school {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0;
+}
+
+/* Call to Action Section */
+.nma-welcome-cta-section {
+  position: relative;
+  background: url('../images/nma-building.jpg') center/cover no-repeat;
+  padding: 80px 0;
+  overflow: hidden;
+  background-attachment: fixed;
+}
+
+.nma-welcome-cta-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(3, 7, 43, 0.85) 0%, rgba(0, 127, 220, 0.75) 100%);
+  z-index: 1;
+}
+
+.nma-welcome-cta-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+.nma-cta-content {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.nma-cta-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 15px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.nma-cta-subtitle {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 40px;
+}
+
+.nma-cta-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.nma-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 30px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  min-width: 180px;
+  justify-content: center;
+}
+
+.nma-cta-primary {
+  background: var(--secondary-color);
+  color: white;
+  box-shadow: 0 5px 20px rgba(0, 127, 220, 0.3);
+}
+
+.nma-cta-primary:hover {
+  background: #0056a3;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 127, 220, 0.4);
+  color: white;
+}
+
+.nma-cta-secondary {
+  background: white;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+
+.nma-cta-secondary:hover {
+  background: var(--primary-color);
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* Social Sharing Section */
+.nma-social-sharing {
+  text-align: center;
+}
+
+.nma-sharing-text {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 20px;
+}
+
+.nma-sharing-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.nma-share-btn {
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 1.2rem;
+  backdrop-filter: blur(10px);
+}
+
+.nma-share-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  color: white;
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Design for Welcome Content */
+@media (max-width: 1024px) {
+  .nma-welcome-intro {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .nma-achievements-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+
+  .nma-philosophy-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    max-width: 600px;
+  }
+
+  .nma-welcome-signature {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .nma-signature-details {
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .nma-welcome-container {
+    padding: 0 15px;
+  }
+
+  .nma-welcome-intro {
+    padding: 40px 0;
+    margin-bottom: 60px;
+  }
+
+  .nma-school-head-photo {
+    width: 220px;
+    height: 280px;
+  }
+
+  .nma-greeting-title {
+    font-size: 2rem;
+  }
+
+  .nma-achievements-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .nma-achievement-item {
+    padding: 30px 15px;
+  }
+
+  .nma-achievements-title,
+  .nma-philosophy-title,
+  .nma-unique-title,
+  .nma-cta-title {
+    font-size: 1.8rem;
+  }
+
+  .nma-unique-feature {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .nma-feature-number {
+    min-width: auto;
+  }
+
+  .nma-cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nma-cta-btn {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nma-school-head-photo {
+    width: 180px;
+    height: 240px;
+  }
+
+  .nma-greeting-title {
+    font-size: 1.6rem;
+  }
+
+  .nma-welcome-signature {
+    padding: 30px 20px;
+  }
+
+  .nma-signature-img {
+    max-width: 150px;
+  }
+
+  .nma-sharing-buttons {
+    gap: 10px;
+  }
+
+  .nma-share-btn {
+    width: 45px;
+    height: 45px;
+    font-size: 1.1rem;
+  }
+}
+
+.homepage-programs-items img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.bg-smartribe {
+  background: var(--secondary-color);
+}
+
+.bg-science{
+  background: var(--primary-color);
 }
