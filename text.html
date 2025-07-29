@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+      /* Kindergarten Page Styles */
+      .kindergarten-hero {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 5rem 1rem;
+        text-align: center;
+      }
+
+      .kindergarten-hero h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .kindergarten-hero .subtitle {
+        font-size: 1.2rem;
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      .program-overview {
+        padding: 4rem 1rem;
+        background-color: white;
+      }
+
+      .section-header {
+        max-width: 800px;
+        margin: 0 auto 3rem;
+        text-align: center;
+      }
+
+      .section-header h2 {
+        color: var(--primary-color);
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      .program-highlights {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .highlight-card {
+        flex: 1;
+        min-width: 280px;
+        max-width: 350px;
+        text-align: center;
+        padding: 2rem 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      }
+
+      .icon-circle {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background-color: rgba(0, 127, 220, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+      }
+
+      .highlight-card h3 {
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+      }
+
+      .curriculum-section {
+        padding: 4rem 1rem;
+        background-color: #f9f9f9;
+      }
+
+      .curriculum-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .curriculum-item {
+        background: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      }
+
+      .curriculum-item h3 {
+        color: var(--secondary-color);
+        margin-bottom: 1rem;
+      }
+
+      .curriculum-item ul {
+        margin-top: 1rem;
+        padding-left: 1.2rem;
+      }
+
+      .curriculum-item li {
+        margin-bottom: 0.5rem;
+      }
+
+      .assessment-section {
+        padding: 4rem 1rem;
+        background-color: white;
+      }
+
+      .assessment-content {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .assessment-content h2 {
+        color: var(--primary-color);
+        margin-bottom: 1.5rem;
+        text-align: center;
+      }
+
+      .assessment-content ul {
+        margin: 1.5rem 0;
+        padding-left: 1.2rem;
+      }
+
+      .assessment-content li {
+        margin-bottom: 0.75rem;
+      }
+
+      .cta-section {
+        padding: 4rem 1rem;
+        background-color: var(--primary-color);
+        color: white;
+        text-align: center;
+      }
+
+      .cta-section h2 {
+        margin-bottom: 2rem;
+        font-size: 1.8rem;
+      }
+
+      .cta-button {
+        display: inline-block;
+        background-color: var(--secondary-color);
+        color: white;
+        padding: 1rem 2rem;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: background-color 0.3s;
+      }
+
+      .cta-button:hover {
+        background-color: #0066b3;
+      }
+
+      @media (max-width: 768px) {
+        .program-highlights {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .highlight-card {
+          max-width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="kindergarten-hero">
+      <div class="container">
+        <h1>Kindergarten Program</h1>
+        <p class="subtitle">
+          Nurturing young minds through play, discovery, and structured learning
+        </p>
+      </div>
+    </section>
+
+    <section class="program-overview">
+      <div class="container">
+        <div class="section-header">
+          <h2>Our Approach</h2>
+          <p>
+            At New Mission Academy, we provide a balanced kindergarten
+            experience that prepares children for academic success while
+            fostering social and emotional growth.
+          </p>
+        </div>
+
+        <div class="program-highlights">
+          <div class="highlight-card">
+            <div class="icon-circle">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="var(--secondary-color)"
+                width="48"
+                height="48"
+              >
+                <path
+                  d="M12 2L1 12l3 3 1-1v7h5v-4h4v4h5v-7l1 1 3-3L12 2zm0 4.5l5 5v4.5h-2v-3H9v3H7v-4.5l5-5z"
+                />
+              </svg>
+            </div>
+            <h3>Safe Environment</h3>
+            <p>
+              Our classrooms are designed to be welcoming spaces where children
+              feel secure to explore and learn.
+            </p>
+          </div>
+
+          <div class="highlight-card">
+            <div class="icon-circle">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="var(--secondary-color)"
+                width="48"
+                height="48"
+              >
+                <path
+                  d="M12 3L1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"
+                />
+              </svg>
+            </div>
+            <h3>Experienced Educators</h3>
+            <p>
+              Certified teachers specializing in early childhood development
+              guide each child's progress.
+            </p>
+          </div>
+
+          <div class="highlight-card">
+            <div class="icon-circle">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="var(--secondary-color)"
+                width="48"
+                height="48"
+              >
+                <path
+                  d="M12 3c-4.97 0-9 3.185-9 7.115 0 2.557 1.522 4.82 3.889 6.115l-.78 2.77 3.116-1.65c.88.275 1.823.425 2.775.425 4.97 0 9-3.186 9-7.115C21 6.186 16.97 3 12 3z"
+                />
+              </svg>
+            </div>
+            <h3>Social Development</h3>
+            <p>
+              We emphasize cooperation, communication, and building positive
+              relationships.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="curriculum-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Curriculum Highlights</h2>
+        </div>
+
+        <div class="curriculum-grid">
+          <div class="curriculum-item">
+            <h3>Pre-Reading & Pre-Math Skills</h3>
+            <p>
+              Foundational literacy and numeracy development through engaging,
+              hands-on activities.
+            </p>
+            <ul>
+              <li>Phonemic awareness</li>
+              <li>Number recognition</li>
+              <li>Pattern identification</li>
+              <li>Early writing skills</li>
+            </ul>
+          </div>
+
+          <div class="curriculum-item">
+            <h3>Creative Arts Program</h3>
+            <p>Encouraging self-expression and fine motor development.</p>
+            <ul>
+              <li>Visual arts exploration</li>
+              <li>Music and movement</li>
+              <li>Dramatic play</li>
+              <li>Sensory activities</li>
+            </ul>
+          </div>
+
+          <div class="curriculum-item">
+            <h3>Physical Education</h3>
+            <p>Developing gross motor skills and healthy habits.</p>
+            <ul>
+              <li>Outdoor play</li>
+              <li>Coordination exercises</li>
+              <li>Team games</li>
+              <li>Balance activities</li>
+            </ul>
+          </div>
+
+          <div class="curriculum-item">
+            <h3>School Readiness</h3>
+            <p>Preparing for the transition to elementary school.</p>
+            <ul>
+              <li>Following routines</li>
+              <li>Group participation</li>
+              <li>Problem-solving skills</li>
+              <li>Independent work habits</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="assessment-section">
+      <div class="container">
+        <div class="assessment-content">
+          <h2>Assessment & Progress</h2>
+          <p>
+            We use a variety of assessment methods to track each child's
+            development:
+          </p>
+          <ul>
+            <li>Observational records</li>
+            <li>Portfolio collections</li>
+            <li>Developmental checklists</li>
+            <li>Parent-teacher conferences</li>
+          </ul>
+          <p>
+            Regular progress reports keep families informed about their child's
+            growth in all developmental areas.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <h2>Ready to Begin Your Child's Educational Journey?</h2>
+        <a href="/admissions" class="cta-button">Learn About Admissions</a>
+      </div>
+    </section>
+  </body>
+</html>
