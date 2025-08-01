@@ -6671,3 +6671,225 @@ body {
   height: 100%;
   object-fit: cover;
 }
+
+/* Upper Primary Curriculum Table - Unique CSS classes with upp- prefix */
+.upp-curriculum-section {
+  padding: 80px 0;
+  background-color: #f8f9fa;
+}
+
+.upp-curriculum-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.upp-curriculum-title {
+  color: var(--primary-color);
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.upp-curriculum-subtitle {
+  max-width: 700px;
+  margin: 0 auto;
+  color: #555;
+  font-size: 1.1rem;
+}
+
+.upp-curriculum-tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.upp-tab-btn {
+  background: none;
+  border: none;
+  padding: 12px 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #555;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.upp-tab-btn:hover {
+  color: var(--secondary-color);
+}
+
+.upp-tab-btn.active {
+  color: var(--secondary-color);
+  border-bottom-color: var(--secondary-color);
+}
+
+.upp-grade-content {
+  display: none;
+}
+
+.upp-grade-content.active {
+  display: block;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.upp-curriculum-table {
+  width: 100%;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px;
+}
+
+.upp-table-row {
+  display: flex;
+  border-bottom: 1px solid #eee;
+  background-color: white;
+}
+
+.upp-table-row:last-child {
+  border-bottom: none;
+}
+
+.upp-table-header {
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: 600;
+}
+
+.upp-table-cell {
+  flex: 1;
+  padding: 20px;
+}
+
+.upp-table-header .upp-table-cell {
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.upp-subject {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 25px 15px;
+}
+
+.upp-subject h3 {
+  margin: 10px 0 0 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+}
+
+.upp-subject-icon {
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  color: white;
+}
+
+.upp-english {
+  background-color: #3949ab;
+}
+
+.upp-math {
+  background-color: #2e7d32;
+}
+
+.upp-science {
+  background-color: #d32f2f;
+}
+
+.upp-social {
+  background-color: #f57c00;
+}
+
+.upp-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.upp-list li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.upp-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
+/* Responsive styles for curriculum table */
+@media (max-width: 992px) {
+  .upp-table-row {
+    flex-direction: column;
+  }
+
+  .upp-subject {
+    flex-direction: row;
+    text-align: left;
+    padding: 15px;
+  }
+
+  .upp-subject h3 {
+    margin: 0 0 0 15px;
+  }
+
+  .upp-table-header {
+    display: none;
+  }
+
+  .upp-table-cell {
+    padding: 15px;
+  }
+
+  .upp-subject-icon {
+    width: 45px;
+    height: 45px;
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .upp-curriculum-tabs {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .upp-tab-btn {
+    width: 100%;
+    max-width: 200px;
+    text-align: center;
+  }
+
+  .upp-curriculum-title {
+    font-size: 1.8rem;
+  }
+}
+
+
