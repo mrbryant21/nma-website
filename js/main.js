@@ -923,5 +923,24 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-// ===== CRECHE LEARNING FACILITIES CAROUSEL =====
-// Carousel functionality moved to app.js
+// Set current year for copyright
+document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+// Add animation to the learning step cards
+document.addEventListener("DOMContentLoaded", function () {
+  const cards = document.querySelectorAll(".learning-step-card");
+
+  cards.forEach((card, index) => {
+    // Add a slight delay for each card to create a staggered animation effect
+    setTimeout(() => {
+      card.style.opacity = "0";
+      card.style.transform = "translateY(20px)";
+
+      setTimeout(() => {
+        card.style.transition = "all 0.5s ease";
+        card.style.opacity = "1";
+        card.style.transform = "translateY(0)";
+      }, 100);
+    }, index * 150);
+  });
+});

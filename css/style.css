@@ -24,6 +24,8 @@ h6 {
 p,
 body {
   font-family: 'Nunito Sans', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.5;
 }
 
 html {
@@ -2354,7 +2356,7 @@ body {
 /* News Grid Layout */
 .nma-news-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 3fr 1fr;
   gap: 30px;
   margin-bottom: 40px;
 }
@@ -2362,8 +2364,8 @@ body {
 /* Featured News Section */
 .nma-news-featured {
   display: flex;
-  flex-direction: row;
-  gap: 20px;
+  flex-direction: column;
+  gap: 30px;
 }
 
 /* Featured News Card */
@@ -2373,7 +2375,7 @@ body {
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
-  flex: 1;
+  width: 100%;
 }
 
 .nma-news-featured .nma-news-card:hover {
@@ -2383,15 +2385,26 @@ body {
 
 .nma-news-image {
   position: relative;
-  height: 180px;
+  height: 280px;
   overflow: hidden;
+}
+
+.nma-news-image::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.15), transparent);
+  z-index: 1;
 }
 
 .nma-news-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease;
+  transition: transform 0.5s ease;
 }
 
 .nma-news-card:hover .nma-news-image img {
@@ -2411,14 +2424,14 @@ body {
 }
 
 .nma-news-content-body {
-  padding: 18px;
+  padding: 24px;
 }
 
 .nma-news-meta {
   display: flex;
   gap: 15px;
-  margin-bottom: 12px;
-  font-size: 0.8rem;
+  margin-bottom: 15px;
+  font-size: 0.85rem;
   color: #6c757d;
 }
 
@@ -2429,33 +2442,51 @@ body {
 }
 
 .nma-news-title-card {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   font-weight: 700;
   color: var(--primary-color);
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   line-height: 1.4;
 }
 
 .nma-news-excerpt {
-  color: #6c757d;
-  line-height: 1.6;
-  margin-bottom: 15px;
-  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
 }
 
 .nma-read-more-btn {
   color: var(--secondary-color);
   text-decoration: none;
   font-weight: 600;
+  font-size: 0.95rem;
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  padding: 8px 0;
+  position: relative;
   transition: all 0.3s ease;
+}
+
+.nma-read-more-btn:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--secondary-color);
+  transition: width 0.3s ease;
 }
 
 .nma-read-more-btn:hover {
   color: var(--primary-color);
   gap: 12px;
+}
+
+.nma-read-more-btn:hover:after {
+  width: 100%;
 }
 
 /* Regular News Items */
@@ -2684,12 +2715,16 @@ body {
 @media (max-width: 992px) {
   .nma-news-grid {
     grid-template-columns: 1fr;
-    gap: 25px;
+    gap: 30px;
   }
 
   .nma-news-featured {
     flex-direction: column;
-    gap: 20px;
+    gap: 30px;
+  }
+
+  .nma-news-image {
+    height: 320px;
   }
 
   .nma-news-main-title {
@@ -2766,7 +2801,12 @@ body {
 
 @media (max-width: 480px) {
   .nma-news-featured .nma-news-card {
-    margin: 0 -15px;
+    margin: 0;
+    border-radius: 10px;
+  }
+
+  .nma-news-image {
+    height: 200px;
   }
 
   .nma-news-content-body {
@@ -2774,7 +2814,7 @@ body {
   }
 
   .nma-news-title-card {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
   }
 
   .nma-event-card {
@@ -6458,3 +6498,176 @@ body {
 }
 
 
+.lower-primary-details {
+  max-width: 500px;
+}
+
+.lower-primary-text {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Learning Step Cards */
+.learning-step-card {
+  border-radius: 15px;
+  padding: 25px;
+  height: 100%;
+  color: white;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.learning-step-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.learning-step-card:before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  z-index: -1;
+  transition: all 0.5s ease;
+}
+
+.learning-step-card:hover:before {
+  width: 150px;
+  height: 150px;
+  opacity: 0.15;
+}
+
+.learning-step-card:after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: -10px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.05);
+  z-index: -1;
+  transition: all 0.5s ease;
+}
+
+.learning-step-card:hover:after {
+  width: 120px;
+  height: 120px;
+  opacity: 0.1;
+}
+
+.learning-step-icon {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+  text-align: center;
+  border-radius: 50%;
+  transition: all 0.4s ease;
+}
+
+.learning-step-card:hover .learning-step-icon {
+  transform: rotate(360deg) scale(1.1);
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.learning-step-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.learning-step-description {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+/* Card Background Colors */
+.primary-bg {
+  background-color: var(--primary-color);
+}
+
+.orange-bg {
+  background-color: #FF7F27;
+}
+
+.red-bg {
+  background-color: #E74C3C;
+}
+
+.green-bg {
+  background-color: #27AE60;
+}
+
+.learning-path-steps {
+  padding: 40px 0;
+}
+
+.learning-path-title {
+  color: var(--primary-color);
+  font-weight: 700;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.learning-path-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background-color: var(--secondary-color);
+}
+
+.learning-header-description p {
+  color: #666;
+  line-height: 1.7;
+}
+
+.row.g-4 {
+  margin: 0;
+}
+
+@media (max-width: 991px) {
+  .learning-step-card {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  .learning-path-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .learning-path-title::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .learning-header-description {
+    margin-top: 30px;
+  }
+
+  .col-md-6.d-flex.align-items-center {
+    margin-top: 30px;
+  }
+}
+
+.learning-path-image img {
+  height: 100%;
+  object-fit: cover;
+}
