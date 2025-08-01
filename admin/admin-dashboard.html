@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Mission Academy - Admin Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/dashboard.css" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>New Mission Academy</h2>
+                <p>Admin Dashboard</p>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active"><a href="#dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="#news"><i class="fas fa-newspaper"></i> News Management</a></li>
+                    <li><a href="#events"><i class="fas fa-calendar-alt"></i> Events Management</a></li>
+                    <li><a href="#media"><i class="fas fa-images"></i> Media Library</a></li>
+                    <li><a href="#users"><i class="fas fa-users"></i> User Management</a></li>
+                    <li><a href="#activity"><i class="fas fa-history"></i> Activity Log</a></li>
+                    <li><a href="#settings"><i class="fas fa-cog"></i> Settings</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <img src="https://via.placeholder.com/40" alt="User Profile" class="profile-img">
+                    <div class="profile-info">
+                        <span class="username">Admin User</span>
+                        <span class="role">Administrator</span>
+                    </div>
+                </div>
+                <a href="#logout" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="main-header">
+                <div class="header-left">
+                    <button class="sidebar-toggle"><i class="fas fa-bars"></i></button>
+                    <h1>Dashboard Overview</h1>
+                </div>
+                <div class="header-right">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search...">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-wrapper">
+                <!-- Dashboard Overview Section -->
+                <section id="dashboard-section" class="dashboard-section active-section">
+                    <div class="stats-cards">
+                        <div class="stat-card">
+                            <div class="stat-icon bg-primary">
+                                <i class="fas fa-newspaper"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Total News</h3>
+                                <p>124</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon bg-success">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Published News</h3>
+                                <p>98</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon bg-warning">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Upcoming Events</h3>
+                                <p>14</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon bg-danger">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Active Users</h3>
+                                <p>8</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-row">
+                        <div class="recent-activity">
+                            <div class="section-header">
+                                <h2>Recent Activity</h2>
+                                <a href="#activity" class="view-all">View All</a>
+                            </div>
+                            <div class="activity-list">
+                                <div class="activity-item">
+                                    <div class="activity-icon">
+                                        <i class="fas fa-edit"></i>
+                                    </div>
+                                    <div class="activity-content">
+                                        <p>John Doe published a new news article</p>
+                                        <span class="activity-time">2 hours ago</span>
+                                    </div>
+                                </div>
+                                <div class="activity-item">
+                                    <div class="activity-icon">
+                                        <i class="fas fa-calendar-plus"></i>
+                                    </div>
+                                    <div class="activity-content">
+                                        <p>Jane Smith created a new event</p>
+                                        <span class="activity-time">5 hours ago</span>
+                                    </div>
+                                </div>
+                                <div class="activity-item">
+                                    <div class="activity-icon">
+                                        <i class="fas fa-user-plus"></i>
+                                    </div>
+                                    <div class="activity-content">
+                                        <p>New user registered - Michael Brown</p>
+                                        <span class="activity-time">1 day ago</span>
+                                    </div>
+                                </div>
+                                <div class="activity-item">
+                                    <div class="activity-icon">
+                                        <i class="fas fa-image"></i>
+                                    </div>
+                                    <div class="activity-content">
+                                        <p>Sarah Johnson uploaded 3 new images</p>
+                                        <span class="activity-time">2 days ago</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="quick-actions">
+                            <div class="section-header">
+                                <h2>Quick Actions</h2>
+                            </div>
+                            <div class="action-buttons">
+                                <button class="action-btn" id="add-news-btn">
+                                    <i class="fas fa-plus-circle"></i>
+                                    <span>Add News</span>
+                                </button>
+                                <button class="action-btn" id="add-event-btn">
+                                    <i class="fas fa-calendar-plus"></i>
+                                    <span>Add Event</span>
+                                </button>
+                                <button class="action-btn" id="upload-media-btn">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <span>Upload Media</span>
+                                </button>
+                                <button class="action-btn" id="manage-users-btn">
+                                    <i class="fas fa-user-cog"></i>
+                                    <span>Manage Users</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-row">
+                        <div class="recent-news">
+                            <div class="section-header">
+                                <h2>Recent News</h2>
+                                <a href="#news" class="view-all">View All</a>
+                            </div>
+                            <div class="news-list">
+                                <div class="news-item">
+                                    <div class="news-image">
+                                        <img src="https://via.placeholder.com/80" alt="News Image">
+                                    </div>
+                                    <div class="news-content">
+                                        <h3>Annual Science Fair Winners Announced</h3>
+                                        <div class="news-meta">
+                                            <span><i class="fas fa-user"></i> John Doe</span>
+                                            <span><i class="fas fa-calendar"></i> June 15, 2023</span>
+                                            <span class="badge published">Published</span>
+                                        </div>
+                                    </div>
+                                    <div class="news-actions">
+                                        <button class="btn-edit"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-delete"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </div>
+                                <div class="news-item">
+                                    <div class="news-image">
+                                        <img src="https://via.placeholder.com/80" alt="News Image">
+                                    </div>
+                                    <div class="news-content">
+                                        <h3>New Library Resources Available</h3>
+                                        <div class="news-meta">
+                                            <span><i class="fas fa-user"></i> Jane Smith</span>
+                                            <span><i class="fas fa-calendar"></i> June 10, 2023</span>
+                                            <span class="badge draft">Draft</span>
+                                        </div>
+                                    </div>
+                                    <div class="news-actions">
+                                        <button class="btn-edit"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-delete"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="upcoming-events">
+                            <div class="section-header">
+                                <h2>Upcoming Events</h2>
+                                <a href="#events" class="view-all">View All</a>
+                            </div>
+                            <div class="events-list">
+                                <div class="event-item">
+                                    <div class="event-date">
+                                        <span class="event-day">25</span>
+                                        <span class="event-month">Jun</span>
+                                    </div>
+                                    <div class="event-content">
+                                        <h3>Graduation Ceremony</h3>
+                                        <p><i class="fas fa-clock"></i> 10:00 AM - 12:00 PM</p>
+                                        <p><i class="fas fa-map-marker-alt"></i> School Auditorium</p>
+                                    </div>
+                                    <div class="event-actions">
+                                        <button class="btn-edit"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-delete"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </div>
+                                <div class="event-item">
+                                    <div class="event-date">
+                                        <span class="event-day">30</span>
+                                        <span class="event-month">Jun</span>
+                                    </div>
+                                    <div class="event-content">
+                                        <h3>Parent-Teacher Conference</h3>
+                                        <p><i class="fas fa-clock"></i> 2:00 PM - 6:00 PM</p>
+                                        <p><i class="fas fa-map-marker-alt"></i> Classrooms</p>
+                                    </div>
+                                    <div class="event-actions">
+                                        <button class="btn-edit"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-delete"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- News Management Section (hidden by default) -->
+                <section id="news-section" class="dashboard-section">
+                    <div class="section-header">
+                        <h2>News Management</h2>
+                        <button class="btn btn-primary" id="add-new-news">Add News</button>
+                    </div>
+                    
+                    <div class="filters">
+                        <div class="filter-group">
+                            <label for="news-status-filter">Status:</label>
+                            <select id="news-status-filter">
+                                <option value="all">All</option>
+                                <option value="published">Published</option>
+                                <option value="draft">Draft</option>
+                                <option value="scheduled">Scheduled</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="news-category-filter">Category:</label>
+                            <select id="news-category-filter">
+                                <option value="all">All Categories</option>
+                                <option value="academics">Academics</option>
+                                <option value="sports">Sports</option>
+                                <option value="events">Events</option>
+                                <option value="announcements">Announcements</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="news-date-filter">Date:</label>
+                            <input type="date" id="news-date-filter">
+                        </div>
+                        <div class="filter-group">
+                            <label for="news-search">Search:</label>
+                            <input type="text" id="news-search" placeholder="Search news...">
+                            <button class="search-btn"><i class="fas fa-search"></i></button>
+                        </div>
+                    </div>
+                    
+                    <div class="table-responsive">
+                        <table class="news-table">
+                            <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Author</th>
+                                    <th>Category</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Annual Science Fair Winners Announced</td>
+                                    <td>John Doe</td>
+                                    <td>Academics</td>
+                                    <td>Jun 15, 2023</td>
+                                    <td><span class="badge published">Published</span></td>
+                                    <td>
+                                        <button class="btn-action btn-edit"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-action btn-view"><i class="fas fa-eye"></i></button>
+                                        <button class="btn-action btn-delete"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>New Library Resources Available</td>
+                                    <td>Jane Smith</td>
+                                    <td>Academics</td>
+                                    <td>Jun 10, 2023</td>
+                                    <td><span class="badge draft">Draft</span></td>
+                                    <td>
+                                        <button class="btn-action btn-edit"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-action btn-view"><i class="fas fa-eye"></i></button>
+                                        <button class="btn-action btn-delete"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Basketball Team Wins Championship</td>
+                                    <td>Mike Johnson</td>
+                                    <td>Sports</td>
+                                    <td>May 28, 2023</td>
+                                    <td><span class="badge published">Published</span></td>
+                                    <td>
+                                        <button class="btn-action btn-edit"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-action btn-view"><i class="fas fa-eye"></i></button>
+                                        <button class="btn-action btn-delete"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Summer Break Announcement</td>
+                                    <td>Admin</td>
+                                    <td>Announcements</td>
+                                    <td>May 15, 2023</td>
+                                    <td><span class="badge published">Published</span></td>
+                                    <td>
+                                        <button class="btn-action btn-edit"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-action btn-view"><i class="fas fa-eye"></i></button>
+                                        <button class="btn-action btn-delete"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="pagination">
+                        <button class="page-btn" disabled><i class="fas fa-chevron-left"></i></button>
+                        <button class="page-btn active">1</button>
+                        <button class="page-btn">2</button>
+                        <button class="page-btn">3</button>
+                        <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </section>
+
+                <!-- Events Management Section (hidden by default) -->
+                <section id="events-section" class="dashboard-section">
+                    <div class="section-header">
+                        <h2>Events Management</h2>
+                        <button class="btn btn-primary" id="add-new-event">Add Event</button>
+                    </div>
+                    
+                    <div class="filters">
+                        <div class="filter-group">
+                            <label for="events-status-filter">Status:</label>
+                            <select id="events-status-filter">
+                                <option value="all">All</option>
+                                <option value="upcoming">Upcoming</option>
+                                <option value="past">Past</option>
+                                <option value="cancelled">Cancelled</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="events-category-filter">Category:</label>
+                            <select id="events-category-filter">
+                                <option value="all">All Categories</option>
+                                <option value="academic">Academic</option>
+                                <option value="sports">Sports</option>
+                                <option value="cultural">Cultural</option>
+                                <option value="community">Community</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="events-date-filter">Date Range:</label>
+                            <input type="date" id="events-start-date">
+                            <span>to</span>
+                            <input type="date" id="events-end-date">
+                        </div>
+                        <div class="filter-group">
+                            <label for="events-search">Search:</label>
+                            <input type="text" id="events-search" placeholder="Search events...">
+                            <button class="search-btn"><i class="fas fa-search"></i></button>
+                        </div>
+                    </div>
+                    
+                    <div class="table-responsive">
+                        <table class="events-table">
+                            <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Date & Time</th>
+                                    <th>Location</th>
+                                    <th>Category</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Graduation Ceremony</td>
+                                    <td>Jun 25, 2023<br>10:00 AM - 12:00 PM</td>
+                                    <td>School Auditorium</td>
+                                    <td>Academic</td>
+                                    <td><span class="badge upcoming">Upcoming</span></td>
+                                    <td>
+                                        <button class="btn-action btn-edit"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-action btn-view"><i class="fas fa-eye"></i></button>
+                                        <button class="btn-action btn-delete"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Parent-Teacher Conference</td>
+                                    <td>Jun 30, 2023<br>2:00 PM - 6:00 PM</td>
+                                    <td>Classrooms</td>
+                                    <td>Academic</td>
+                                    <td><span class="badge upcoming">Upcoming</span></td>
+                                    <td>
+                                        <button class="btn-action btn-edit"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-action btn-view"><i class="fas fa-eye"></i></button>
+                                        <button class="btn-action btn-delete"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Spring Music Concert</td>
+                                    <td>May 20, 2023<br>7:00 PM - 9:00 PM</td>
+                                    <td>School Auditorium</td>
+                                    <td>Cultural</td>
+                                    <td><span class="badge past">Past</span></td>
+                                    <td>
+                                        <button class="btn-action btn-edit"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-action btn-view"><i class="fas fa-eye"></i></button>
+                                        <button class="btn-action btn-delete"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Sports Day</td>
+                                    <td>Apr 15, 2023<br>9:00 AM - 3:00 PM</td>
+                                    <td>School Grounds</td>
+                                    <td>Sports</td>
+                                    <td><span class="badge past">Past</span></td>
+                                    <td>
+                                        <button class="btn-action btn-edit"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-action btn-view"><i class="fas fa-eye"></i></button>
+                                        <button class="btn-action btn-delete"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="pagination">
+                        <button class="page-btn" disabled><i class="fas fa-chevron-left"></i></button>
+                        <button class="page-btn active">1</button>
+                        <button class="page-btn">2</button>
+                        <button class="page-btn">3</button>
+                        <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </section>
+
+                <!-- Media Library Section (hidden by default) -->
+                <section id="media-section" class="dashboard-section">
+                    <div class="section-header">
+                        <h2>Media Library</h2>
+                        <button class="btn btn-primary" id="upload-media">Upload Media</button>
+                    </div>
+                    
+                    <div class="media-filters">
+                        <div class="filter-group">
+                            <label for="media-type-filter">Type:</label>
+                            <select id="media-type-filter">
+                                <option value="all">All Types</option>
+                                <option value="image">Images</option>
+                                <option value="video">Videos</option>
+                                <option value="document">Documents</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="media-date-filter">Date:</label>
+                            <input type="date" id="media-date-filter">
+                        </div>
+                        <div class="filter-group">
+                            <label for="media-search">Search:</label>
+                            <input type="text" id="media-search" placeholder="Search media...">
+                            <button class="search-btn"><i class="fas fa-search"></i></button>
+                        </div>
+                    </div>
+                    
+                    <div class="media-grid">
+                        <div class="media-item">
+                            <div class="media-thumbnail">
+                                <img src="https://via.placeholder.com/150" alt="Media thumbnail">
+                            </div>
+                            <div class="media-info">
+                                <h3>graduation.jpg</h3>
+                                <p>Uploaded: Jun 10, 2023</p>
+                                <p>Size: 1.2 MB</p>
+                                <p>Dimensions: 1200x800</p>
+                            </div>
+                            <div class="media-actions">
+                                <button class="btn-action btn-insert"><i class="fas fa-plus"></i> Insert</button>
+                                <button class="btn-action btn-edit"><i class="fas fa-edit"></i></button>
+                                <button class="btn-action btn-delete"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+                        <div class="media-item">
+                            <div class="media-thumbnail">
+                                <img src="https://via.placeholder.com/150" alt="Media thumbnail">
+                            </div>
+                            <div class="media-info">
+                                <h3>science-fair.jpg</h3>
+                                <p>Uploaded: May 28, 2023</p>
+                                <p>Size: 0.8 MB</p>
+                                <p>Dimensions: 800x600</p>
+                            </div>
+                            <div class="media-actions">
+                                <button class="btn-action btn-insert"><i class="fas fa-plus"></i> Insert</button>
+                                <button class="btn-action btn-edit"><i class="fas fa-edit"></i></button>
+                                <button class="btn-action btn-delete"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+                        <div class="media-item">
+                            <div class="media-thumbnail">
+                                <img src="https://via.placeholder.com/150" alt="Media thumbnail">
+                            </div>
+                            <div class="media-info">
+                                <h3>basketball-team.jpg</h3>
+                                <p>Uploaded: May 15, 2023</p>
+                                <p>Size: 1.5 MB</p>
+                                <p>Dimensions: 1600x900</p>
+                            </div>
+                            <div class="media-actions">
+                                <button class="btn-action btn-insert"><i class="fas fa-plus"></i> Insert</button>
+                                <button class="btn-action btn-edit"><i class="fas fa-edit"></i></button>
+                                <button class="btn-action btn-delete"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+                        <div class="media-item">
+                            <div class="media-thumbnail">
+                                <img src="https://via.placeholder.com/150" alt="Media thumbnail">
+                            </div>
+                            <div class="media-info">
+                                <h3>school-logo.png</h3>
+                                <p>Uploaded: Apr 20, 2023</p>
+                                <p>Size: 0.5 MB</p>
+                                <p>Dimensions: 500x500</p>
+                            </div>
+                            <div class="media-actions">
+                                <button class="btn-action btn-insert"><i class="fas fa-plus"></i> Insert</button>
+                                <button class="btn-action btn-edit"><i class="fas fa-edit"></i></button>
+                                <button class="btn-action btn-delete"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="pagination">
+                        <button class="page-btn" disabled><i class="fas fa-chevron-left"></i></button>
+                        <button class="page-btn active">1</button>
+                        <button class="page-btn">2</button>
+                        <button class="page-btn">3</button>
+                        <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </section>
+
+                <!-- User Management Section (hidden by default) -->
+                <section id="users-section" class="dashboard-section">
+                    <div class="section-header">
+                        <h2>User Management</h2>
+                        <button class="btn btn-primary" id="add-new-user">Add User</button>
+                    </div>
+                    
+                    <div class="filters">
+                        <div class="filter-group">
+                            <label for="users-role-filter">Role:</label>
+                            <select id="users-role-filter">
+                                <option value="all">All Roles</option>
+                                <option value="admin">Administrator</option>
+                                <option value="editor">Editor</option>
+                                <option value="author">Author</option>
+                                <option value="viewer">Viewer</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="users-status-filter">Status:</label>
+                            <select id="users-status-filter">
+                                <option value="all">All Statuses</option>
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="users-search">Search:</label>
+                            <input type="text" id="users-search" placeholder="Search users...">
+                            <button class="search-btn"><i class="fas fa-search"></i></button>
+                        </div>
+                    </div>
+                    
+                    <div class="table-responsive">
+                        <table class="users-table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                    <th>Last Login</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="user-avatar">
+                                            <img src="https://via.placeholder.com/40" alt="User avatar">
+                                            <span>Admin User</span>
+                                        </div>
+                                    </td>
+                                    <td>admin@nma.edu</td>
+                                    <td><span class="badge admin">Administrator</span></td>
+                                    <td>Today, 10:30 AM</td>
+                                    <td><span class="badge active">Active</span></td>
+                                    <td>
+                                        <button class="btn-action btn-edit"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-action btn-delete"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="user-avatar">
+                                            <img src="https://via.placeholder.com/40" alt="User avatar">
+                                            <span>John Doe</span>
+                                        </div>
+                                    </td>
+                                    <td>john.doe@nma.edu</td>
+                                    <td><span class="badge editor">Editor</span></td>
+                                    <td>Yesterday, 3:45 PM</td>
+                                    <td><span class="badge active">Active</span></td>
+                                    <td>
+                                        <button class="btn-action btn-edit"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-action btn-delete"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="user-avatar">
+                                            <img src="https://via.placeholder.com/40" alt="User avatar">
+                                            <span>Jane Smith</span>
+                                        </div>
+                                    </td>
+                                    <td>jane.smith@nma.edu</td>
+                                    <td><span class="badge author">Author</span></td>
+                                    <td>Jun 15, 2023</td>
+                                    <td><span class="badge active">Active</span></td>
+                                    <td>
+                                        <button class="btn-action btn-edit"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-action btn-delete"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="user-avatar">
+                                            <img src="https://via.placeholder.com/40" alt="User avatar">
+                                            <span>Mike Johnson</span>
+                                        </div>
+                                    </td>
+                                    <td>mike.johnson@nma.edu</td>
+                                    <td><span class="badge viewer">Viewer</span></td>
+                                    <td>Jun 10, 2023</td>
+                                    <td><span class="badge inactive">Inactive</span></td>
+                                    <td>
+                                        <button class="btn-action btn-edit"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-action btn-delete"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="pagination">
+                        <button class="page-btn" disabled><i class="fas fa-chevron-left"></i></button>
+                        <button class="page-btn active">1</button>
+                        <button class="page-btn">2</button>
+                        <button class="page-btn">3</button>
+                        <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </section>
+
+                <!-- Activity Log Section (hidden by default) -->
+                <section id="activity-section" class="dashboard-section">
+                    <div class="section-header">
+                        <h2>Activity Log</h2>
+                    </div>
+                    
+                    <div class="filters">
+                        <div class="filter-group">
+                            <label for="activity-user-filter">User:</label>
+                            <select id="activity-user-filter">
+                                <option value="all">All Users</option>
+                                <option value="admin">Admin User</option>
+                                <option value="john">John Doe</option>
+                                <option value="jane">Jane Smith</option>
+                                <option value="mike">Mike Johnson</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="activity-action-filter">Action:</label>
+                            <select id="activity-action-filter">
+                                <option value="all">All Actions</option>
+                                <option value="create">Create</option>
+                                <option value="edit">Edit</option>
+                                <option value="delete">Delete</option>
+                                <option value="login">Login</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="activity-date-filter">Date Range:</label>
+                            <input type="date" id="activity-start-date">
+                            <span>to</span>
+                            <input type="date" id="activity-end-date">
+                        </div>
+                    </div>
+                    
+                    <div class="activity-log">
+                        <div class="log-item">
+                            <div class="log-icon">
+                                <i class="fas fa-edit"></i>
+                            </div>
+                            <div class="log-content">
+                                <p><strong>John Doe</strong> edited news article <strong>"Annual Science Fair Winners Announced"</strong></p>
+                                <span class="log-time">Today, 2:30 PM</span>
+                            </div>
+                        </div>
+                        <div class="log-item">
+                            <div class="log-icon">
+                                <i class="fas fa-calendar-plus"></i>
+                            </div>
+                            <div class="log-content">
+                                <p><strong>Jane Smith</strong> created a new event <strong>"Parent-Teacher Conference"</strong></p>
+                                <span class="log-time">Yesterday, 5:15 PM</span>
+                            </div>
+                        </div>
+                        <div class="log-item">
+                            <div class="log-icon">
+                                <i class="fas fa-sign-in-alt"></i>
+                            </div>
+                            <div class="log-content">
+                                <p><strong>Admin User</strong> logged in to the system</p>
+                                <span class="log-time">Yesterday, 9:00 AM</span>
+                            </div>
+                        </div>
+                        <div class="log-item">
+                            <div class="log-icon">
+                                <i class="fas fa-image"></i>
+                            </div>
+                            <div class="log-content">
+                                <p><strong>Mike Johnson</strong> uploaded 3 images to media library</p>
+                                <span class="log-time">Jun 18, 2023, 11:20 AM</span>
+                            </div>
+                        </div>
+                        <div class="log-item">
+                            <div class="log-icon">
+                                <i class="fas fa-trash"></i>
+                            </div>
+                            <div class="log-content">
+                                <p><strong>Admin User</strong> deleted news article <strong>"Old Announcement"</strong></p>
+                                <span class="log-time">Jun 15, 2023, 4:45 PM</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="pagination">
+                        <button class="page-btn" disabled><i class="fas fa-chevron-left"></i></button>
+                        <button class="page-btn active">1</button>
+                        <button class="page-btn">2</button>
+                        <button class="page-btn">3</button>
+                        <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </section>
+
+                <!-- Settings Section (hidden by default) -->
+                <section id="settings-section" class="dashboard-section">
+                    <div class="section-header">
+                        <h2>Settings</h2>
+                    </div>
+                    
+                    <div class="settings-tabs">
+                        <div class="tabs-header">
+                            <button class="tab-btn active" data-tab="general">General Settings</button>
+                            <button class="tab-btn" data-tab="profile">Profile Settings</button>
+                            <button class="tab-btn" data-tab="notifications">Notifications</button>
+                        </div>
+                        
+                        <div class="tab-content active" id="general-tab">
+                            <form class="settings-form">
+                                <div class="form-group">
+                                    <label for="site-title">Site Title</label>
+                                    <input type="text" id="site-title" value="New Mission Academy">
+                                </div>
+                                <div class="form-group">
+                                    <label for="timezone">Timezone</label>
+                                    <select id="timezone">
+                                        <option value="UTC-5">(UTC-05:00) Eastern Time (US & Canada)</option>
+                                        <option value="UTC-6">(UTC-06:00) Central Time (US & Canada)</option>
+                                        <option value="UTC-7">(UTC-07:00) Mountain Time (US & Canada)</option>
+                                        <option value="UTC-8">(UTC-08:00) Pacific Time (US & Canada)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="date-format">Date Format</label>
+                                    <select id="date-format">
+                                        <option value="mm/dd/yyyy">MM/DD/YYYY (12/31/2023)</option>
+                                        <option value="dd/mm/yyyy">DD/MM/YYYY (31/12/2023)</option>
+                                        <option value="yyyy-mm-dd">YYYY-MM-DD (2023-12-31)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="default-news-category">Default News Category</label>
+                                    <select id="default-news-category">
+                                        <option value="announcements">Announcements</option>
+                                        <option value="academics">Academics</option>
+                                        <option value="sports">Sports</option>
+                                        <option value="events">Events</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="posts-per-page">Posts Per Page</label>
+                                    <input type="number" id="posts-per-page" value="10" min="5" max="50">
+                                </div>
+                                <div class="form-actions">
+                                    <button type="button" class="btn btn-primary">Save Settings</button>
+                                    <button type="button" class="btn btn-secondary">Reset to Defaults</button>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <div class="tab-content" id="profile-tab">
+                            <form class="settings-form">
+                                <div class="profile-picture">
+                                    <img src="https://via.placeholder.com/150" alt="Profile picture">
+                                    <div class="profile-actions">
+                                        <button type="button" class="btn btn-secondary">Change Photo</button>
+                                        <button type="button" class="btn btn-outline-danger">Remove</button>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="profile-name">Full Name</label>
+                                    <input type="text" id="profile-name" value="Admin User">
+                                </div>
+                                <div class="form-group">
+                                    <label for="profile-email">Email Address</label>
+                                    <input type="email" id="profile-email" value="admin@nma.edu">
+                                </div>
+                                <div class="form-group">
+                                    <label for="profile-bio">Bio</label>
+                                    <textarea id="profile-bio" rows="3">System Administrator for New Mission Academy</textarea>
+                                </div>
+                                <div class="form-actions">
+                                    <button type="button" class="btn btn-primary">Update Profile</button>
+                                </div>
+                            </form>
+                            
+                            <div class="password-change">
+                                <h3>Change Password</h3>
+                                <form class="settings-form">
+                                    <div class="form-group">
+                                        <label for="current-password">Current Password</label>
+                                        <input type="password" id="current-password">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="new-password">New Password</label>
+                                        <input type="password" id="new-password">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="confirm-password">Confirm New Password</label>
+                                        <input type="password" id="confirm-password">
+                                    </div>
+                                    <div class="form-actions">
+                                        <button type="button" class="btn btn-primary">Change Password</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-content" id="notifications-tab">
+                            <form class="settings-form">
+                                <div class="form-group checkbox-group">
+                                    <input type="checkbox" id="notify-news" checked>
+                                    <label for="notify-news">Email me when new news articles are submitted for review</label>
+                                </div>
+                                <div class="form-group checkbox-group">
+                                    <input type="checkbox" id="notify-events" checked>
+                                    <label for="notify-events">Email me when new events are created</label>
+                                </div>
+                                <div class="form-group checkbox-group">
+                                    <input type="checkbox" id="notify-users">
+                                    <label for="notify-users">Email me when new users register</label>
+                                </div>
+                                <div class="form-group checkbox-group">
+                                    <input type="checkbox" id="notify-comments" checked>
+                                    <label for="notify-comments">Email me when comments are posted</label>
+                                </div>
+                                <div class="form-group">
+                                    <label for="notification-email">Notification Email Address</label>
+                                    <input type="email" id="notification-email" value="admin@nma.edu">
+                                    <p class="form-hint">All notifications will be sent to this email address</p>
+                                </div>
+                                <div class="form-actions">
+                                    <button type="button" class="btn btn-primary">Save Notification Settings</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Modal for Adding/Editing News -->
+                <div class="modal" id="news-modal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2>Add New News Article</h2>
+                            <button class="close-modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="news-form">
+                                <div class="form-group">
+                                    <label for="news-title">Title</label>
+                                    <input type="text" id="news-title" placeholder="Enter news title" required>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="news-category">Category</label>
+                                        <select id="news-category">
+                                            <option value="academics">Academics</option>
+                                            <option value="sports">Sports</option>
+                                            <option value="events">Events</option>
+                                            <option value="announcements">Announcements</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="news-status">Status</label>
+                                        <select id="news-status">
+                                            <option value="draft">Draft</option>
+                                            <option value="published">Published</option>
+                                            <option value="scheduled">Scheduled</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group" id="schedule-date-group" style="display: none;">
+                                    <label for="news-publish-date">Publish Date & Time</label>
+                                    <input type="datetime-local" id="news-publish-date">
+                                </div>
+                                <div class="form-group">
+                                    <label for="news-featured-image">Featured Image</label>
+                                    <div class="image-upload">
+                                        <div class="image-preview">
+                                            <img id="news-image-preview" src="https://via.placeholder.com/400x200" alt="Featured image preview">
+                                        </div>
+                                        <div class="upload-actions">
+                                            <button type="button" class="btn btn-secondary" id="upload-image-btn">Upload Image</button>
+                                            <button type="button" class="btn btn-outline-danger" id="remove-image-btn">Remove</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="news-content">Content</label>
+                                    <div class="rich-text-toolbar">
+                                        <button type="button" class="format-btn" data-command="bold"><i class="fas fa-bold"></i></button>
+                                        <button type="button" class="format-btn" data-command="italic"><i class="fas fa-italic"></i></button>
+                                        <button type="button" class="format-btn" data-command="underline"><i class="fas fa-underline"></i></button>
+                                        <button type="button" class="format-btn" data-command="insertUnorderedList"><i class="fas fa-list-ul"></i></button>
+                                        <button type="button" class="format-btn" data-command="insertOrderedList"><i class="fas fa-list-ol"></i></button>
+                                        <button type="button" class="format-btn" data-command="createLink"><i class="fas fa-link"></i></button>
+                                        <button type="button" class="format-btn" data-command="insertImage"><i class="fas fa-image"></i></button>
+                                        <button type="button" class="format-btn" data-command="undo"><i class="fas fa-undo"></i></button>
+                                        <button type="button" class="format-btn" data-command="redo"><i class="fas fa-redo"></i></button>
+                                    </div>
+                                    <div class="rich-text-editor" id="news-content" contenteditable="true"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="news-tags">Tags</label>
+                                    <input type="text" id="news-tags" placeholder="Add tags separated by commas">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" id="preview-news-btn">Preview</button>
+                            <button class="btn btn-secondary">Save Draft</button>
+                            <button class="btn btn-primary">Publish</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal for Adding/Editing Events -->
+                <div class="modal" id="event-modal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2>Add New Event</h2>
+                            <button class="close-modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="event-form">
+                                <div class="form-group">
+                                    <label for="event-title">Title</label>
+                                    <input type="text" id="event-title" placeholder="Enter event title" required>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="event-category">Category</label>
+                                        <select id="event-category">
+                                            <option value="academic">Academic</option>
+                                            <option value="sports">Sports</option>
+                                            <option value="cultural">Cultural</option>
+                                            <option value="community">Community</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="event-status">Status</label>
+                                        <select id="event-status">
+                                            <option value="upcoming">Upcoming</option>
+                                            <option value="cancelled">Cancelled</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="event-start-date">Start Date & Time</label>
+                                        <input type="datetime-local" id="event-start-date" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="event-end-date">End Date & Time</label>
+                                        <input type="datetime-local" id="event-end-date" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="event-location">Location</label>
+                                    <input type="text" id="event-location" placeholder="Enter event location">
+                                </div>
+                                <div class="form-group">
+                                    <label for="event-featured-image">Featured Image</label>
+                                    <div class="image-upload">
+                                        <div class="image-preview">
+                                            <img id="event-image-preview" src="https://via.placeholder.com/400x200" alt="Featured image preview">
+                                        </div>
+                                        <div class="upload-actions">
+                                            <button type="button" class="btn btn-secondary" id="upload-event-image-btn">Upload Image</button>
+                                            <button type="button" class="btn btn-outline-danger" id="remove-event-image-btn">Remove</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="event-description">Description</label>
+                                    <textarea id="event-description" rows="5" placeholder="Enter event description"></textarea>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" id="preview-event-btn">Preview</button>
+                            <button class="btn btn-primary">Save Event</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal for Adding/Editing Users -->
+                <div class="modal" id="user-modal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2>Add New User</h2>
+                            <button class="close-modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="user-form">
+                                <div class="form-group">
+                                    <label for="user-avatar">Profile Picture</label>
+                                    <div class="image-upload">
+                                        <div class="image-preview">
+                                            <img id="user-avatar-preview" src="https://via.placeholder.com/150" alt="User avatar preview">
+                                        </div>
+                                        <div class="upload-actions">
+                                            <button type="button" class="btn btn-secondary" id="upload-avatar-btn">Upload Image</button>
+                                            <button type="button" class="btn btn-outline-danger" id="remove-avatar-btn">Remove</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="user-first-name">First Name</label>
+                                        <input type="text" id="user-first-name" placeholder="Enter first name" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="user-last-name">Last Name</label>
+                                        <input type="text" id="user-last-name" placeholder="Enter last name" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="user-email">Email Address</label>
+                                    <input type="email" id="user-email" placeholder="Enter email address" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="user-role">Role</label>
+                                    <select id="user-role">
+                                        <option value="admin">Administrator</option>
+                                        <option value="editor">Editor</option>
+                                        <option value="author">Author</option>
+                                        <option value="viewer">Viewer</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="user-status">Status</label>
+                                    <select id="user-status">
+                                        <option value="active">Active</option>
+                                        <option value="inactive">Inactive</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="user-password">Password</label>
+                                    <input type="password" id="user-password" placeholder="Enter password" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="user-confirm-password">Confirm Password</label>
+                                    <input type="password" id="user-confirm-password" placeholder="Confirm password" required>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary">Cancel</button>
+                            <button class="btn btn-primary">Save User</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal for Uploading Media -->
+                <div class="modal" id="media-upload-modal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2>Upload Media</h2>
+                            <button class="close-modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="upload-area" id="drop-zone">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>Drag & drop files here or click to browse</p>
+                                <input type="file" id="file-input" multiple style="display: none;">
+                                <button class="btn btn-primary" id="browse-files-btn">Select Files</button>
+                            </div>
+                            <div class="upload-progress" id="upload-progress" style="display: none;">
+                                <h3>Uploading Files</h3>
+                                <div class="progress-container">
+                                    <div class="progress-bar" id="progress-bar"></div>
+                                    <span class="progress-text" id="progress-text">0%</span>
+                                </div>
+                                <div class="file-list" id="file-list"></div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" id="cancel-upload-btn" style="display: none;">Cancel Upload</button>
+                            <button class="btn btn-primary" id="start-upload-btn" style="display: none;">Start Upload</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Preview Modal -->
+                <div class="modal" id="preview-modal">
+                    <div class="modal-content preview-content">
+                        <div class="modal-header">
+                            <h2>Preview</h2>
+                            <button class="close-modal">&times;</button>
+                        </div>
+                        <div class="modal-body" id="preview-content">
+                            <!-- Preview content will be inserted here -->
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary">Close</button>
+                            <button class="btn btn-primary">Edit</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Confirmation Modal -->
+                <div class="modal" id="confirm-modal">
+                    <div class="modal-content confirm-content">
+                        <div class="modal-header">
+                            <h2>Confirm Action</h2>
+                            <button class="close-modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <p id="confirm-message">Are you sure you want to perform this action?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" id="cancel-confirm-btn">Cancel</button>
+                            <button class="btn btn-danger" id="confirm-action-btn">Confirm</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Login Page (hidden by default) -->
+    <div class="login-container" style="display: none;">
+        <div class="login-box">
+            <div class="login-header">
+                <img src="logo.png" alt="New Mission Academy Logo" class="login-logo">
+                <h1>Admin Dashboard</h1>
+                <p>Sign in to access the admin panel</p>
+            </div>
+            <form class="login-form">
+                <div class="form-group">
+                    <label for="login-email">Email Address</label>
+                    <input type="email" id="login-email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" placeholder="Enter your password" required>
+                </div>
+                <div class="form-options">
+                    <div class="remember-me">
+                        <input type="checkbox" id="remember-me">
+                        <label for="remember-me">Remember me</label>
+                    </div>
+                    <a href="#forgot-password" class="forgot-password">Forgot password?</a>
+                </div>
+                <button type="submit" class="btn btn-primary login-btn">Sign In</button>
+            </form>
+            <div class="login-footer">
+                <p>© 2023 New Mission Academy. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/dashboard.js"></script>
+</body>
+</html>
